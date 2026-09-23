@@ -40,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
       <body className="antialiased bg-white text-slate-800">
         <Header />
-        <main className="min-h-screen pt-16">{children}</main>
+        <main className="min-h-screen pt-14 lg:pt-[88px]">{children}</main>
         <Footer />
       </body>
     </html>
