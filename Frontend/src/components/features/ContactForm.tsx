@@ -15,29 +15,19 @@ const subjectOptions = [
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name: "", email: "", phone: "", subject: "", message: "",
   });
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
     setErrorMessage("");
-
     try {
       const result = await submitContactForm(formData);
       if (result.success) {
@@ -55,20 +45,20 @@ export const ContactForm: React.FC = () => {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center py-16 px-8 text-center">
-        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
-          <CheckCircle className="w-10 h-10 text-emerald-600" />
+      <div className="flex flex-col items-center justify-center py-14 px-6 text-center">
+        <div className="w-16 h-16 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-5">
+          <CheckCircle className="w-8 h-8 text-emerald-600" />
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-3">
+        <h3 className="text-xl font-bold text-[#0f2557] mb-2"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
           Message envoyé !
         </h3>
-        <p className="text-gray-500 mb-6 max-w-sm">
-          Merci pour votre message. Notre équipe vous répondra dans les plus
-          brefs délais.
+        <p className="text-slate-500 text-sm mb-6 max-w-xs">
+          Merci. Notre équipe vous répondra dans les plus brefs délais.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          className="bg-[#0f2557] hover:bg-[#142f85] text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition-colors"
         >
           Envoyer un autre message
         </button>
@@ -76,132 +66,73 @@ export const ContactForm: React.FC = () => {
     );
   }
 
-  const inputClass =
-    "w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm";
-  const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5";
+  const inputClass = [
+    "w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900",
+    "placeholder:text-slate-400",
+    "focus:outline-none focus:ring-2 focus:ring-[#c9a84c]/50 focus:border-[#c9a84c] focus:bg-white",
+    "transition-all duration-200",
+  ].join(" ");
+
+  const labelClass = "block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      {/* Nom + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className={labelClass}>
-            Nom complet <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Votre nom complet"
-            required
-            autoComplete="name"
-            className={inputClass}
-          />
+          <label htmlFor="name" className={labelClass}>Nom complet <span className="text-rose-500">*</span></label>
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}
+            placeholder="Votre nom complet" required autoComplete="name" className={inputClass} />
         </div>
         <div>
-          <label htmlFor="email" className={labelClass}>
-            Adresse e-mail <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="votre@email.com"
-            required
-            autoComplete="email"
-            className={inputClass}
-          />
+          <label htmlFor="email" className={labelClass}>Adresse e-mail <span className="text-rose-500">*</span></label>
+          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}
+            placeholder="votre@email.com" required autoComplete="email" className={inputClass} />
         </div>
       </div>
 
-      {/* Téléphone + Sujet */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className={labelClass}>
-            Téléphone
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="+224 6XX XX XX XX"
-            autoComplete="tel"
-            className={inputClass}
-          />
+          <label htmlFor="phone" className={labelClass}>Téléphone</label>
+          <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange}
+            placeholder="+224 6XX XX XX XX" autoComplete="tel" className={inputClass} />
         </div>
         <div>
-          <label htmlFor="subject" className={labelClass}>
-            Sujet <span className="text-red-500">*</span>
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className={inputClass}
-          >
+          <label htmlFor="subject" className={labelClass}>Sujet <span className="text-rose-500">*</span></label>
+          <select id="subject" name="subject" value={formData.subject} onChange={handleChange}
+            required className={inputClass}>
             <option value="">Choisissez un sujet</option>
-            {subjectOptions.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
+            {subjectOptions.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
           </select>
         </div>
       </div>
 
-      {/* Message */}
       <div>
-        <label htmlFor="message" className={labelClass}>
-          Message <span className="text-red-500">*</span>
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Décrivez votre demande en détail..."
-          required
-          rows={5}
-          className={`${inputClass} resize-none`}
-        />
+        <label htmlFor="message" className={labelClass}>Message <span className="text-rose-500">*</span></label>
+        <textarea id="message" name="message" value={formData.message} onChange={handleChange}
+          placeholder="Décrivez votre demande en détail..." required rows={5}
+          className={`${inputClass} resize-none`} />
       </div>
 
-      {/* Erreur */}
       {status === "error" && (
-        <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
-          <AlertCircle className="w-5 h-5 flex-shrink-0" />
+        <div className="flex items-center gap-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs">
+          <AlertCircle className="w-4 h-4 flex-shrink-0" />
           {errorMessage}
         </div>
       )}
 
-      {/* Bouton submit */}
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 disabled:bg-blue-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg text-base"
+        className="w-full flex items-center justify-center gap-2 bg-[#0f2557] hover:bg-[#142f85] disabled:bg-slate-400 text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg text-sm"
       >
         {status === "loading" ? (
-          <>
-            <Loader2 className="w-5 h-5 animate-spin" />
-            Envoi en cours...
-          </>
+          <><Loader2 className="w-4 h-4 animate-spin" /> Envoi en cours...</>
         ) : (
-          <>
-            <Send className="w-5 h-5" />
-            Envoyer le message
-          </>
+          <><Send className="w-4 h-4" /> Envoyer le message</>
         )}
       </button>
 
-      <p className="text-xs text-gray-400 text-center">
+      <p className="text-[11px] text-slate-400 text-center">
         * Champs obligatoires. Vos données ne seront pas partagées avec des tiers.
       </p>
     </form>

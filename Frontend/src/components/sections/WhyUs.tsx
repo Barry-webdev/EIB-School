@@ -1,85 +1,29 @@
 import React from "react";
-import {
-  Shield,
-  Users,
-  BookOpen,
-  Cpu,
-  Heart,
-  Globe,
-  Award,
-  TrendingUp,
-} from "lucide-react";
+import { Shield, Users, BookOpen, Cpu, Heart, Globe, Award, TrendingUp } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const reasons = [
-  {
-    icon: Award,
-    title: "Excellence académique",
-    description:
-      "Des résultats constants aux examens nationaux avec un taux de réussite de 96%. Notre engagement : la réussite de chaque élève.",
-    color: "from-blue-500 to-blue-700",
-  },
-  {
-    icon: Users,
-    title: "Enseignants qualifiés",
-    description:
-      "Un corps enseignant diplômé, expérimenté et passionné, qui accompagne chaque élève avec bienveillance et rigueur.",
-    color: "from-amber-400 to-amber-600",
-  },
-  {
-    icon: Cpu,
-    title: "Infrastructures modernes",
-    description:
-      "Des salles de classe équipées, un laboratoire informatique, une bibliothèque riche, un terrain de sport et des espaces de détente.",
-    color: "from-emerald-400 to-emerald-600",
-  },
-  {
-    icon: Heart,
-    title: "Suivi personnalisé",
-    description:
-      "Chaque élève bénéficie d'un suivi individuel. Nos équipes identifient rapidement les difficultés et apportent un soutien adapté.",
-    color: "from-rose-400 to-rose-600",
-  },
-  {
-    icon: Globe,
-    title: "Ouverture internationale",
-    description:
-      "Des partenariats avec des établissements étrangers, des échanges culturels et des programmes linguistiques renforcés.",
-    color: "from-purple-400 to-purple-600",
-  },
-  {
-    icon: Shield,
-    title: "Environnement sécurisé",
-    description:
-      "Un espace scolaire sûr, surveillé et bienveillant où chaque élève peut s'épanouir sereinement.",
-    color: "from-teal-400 to-teal-600",
-  },
-  {
-    icon: BookOpen,
-    title: "Programme enrichi",
-    description:
-      "Des activités parascolaires variées (sport, arts, technologie) qui complètent et enrichissent le programme académique.",
-    color: "from-indigo-400 to-indigo-600",
-  },
-  {
-    icon: TrendingUp,
-    title: "25 ans d'expérience",
-    description:
-      "Deux décennies de savoir-faire pédagogique au service des familles et de leur engagement pour la réussite de leurs enfants.",
-    color: "from-orange-400 to-orange-600",
-  },
+  { icon: Award,      title: "Excellence académique",   desc: "Taux de réussite de 96% aux examens nationaux grâce à un encadrement rigoureux et personnalisé.",      accent: "#c9a84c" },
+  { icon: Users,      title: "Enseignants qualifiés",    desc: "Un corps enseignant diplômé et passionné, accompagnant chaque élève avec bienveillance et rigueur.",   accent: "#0f2557" },
+  { icon: Cpu,        title: "Infrastructures modernes", desc: "Laboratoires équipés, bibliothèque, salle informatique, terrain de sport et espaces de vie.",           accent: "#059669" },
+  { icon: Heart,      title: "Suivi personnalisé",       desc: "Chaque difficulté est identifiée rapidement. Nos équipes apportent un accompagnement adapté.",           accent: "#e11d48" },
+  { icon: Globe,      title: "Ouverture sur le monde",   desc: "Partenariats internationaux, échanges culturels et programmes linguistiques renforcés.",                accent: "#7c3aed" },
+  { icon: Shield,     title: "Environnement sécurisé",   desc: "Un cadre scolaire surveillé, bienveillant, où chaque élève peut s'épanouir sereinement.",              accent: "#0284c7" },
+  { icon: BookOpen,   title: "Programme enrichi",        desc: "Activités parascolaires variées complétant le programme académique pour un développement global.",       accent: "#c9a84c" },
+  { icon: TrendingUp, title: "25 ans d'expérience",      desc: "Deux décennies de savoir-faire pédagogique au service des familles et de la réussite de leurs enfants.", accent: "#0f2557" },
 ];
 
 export const WhyUs: React.FC = () => (
   <section
-    className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 relative overflow-hidden"
+    className="py-20 lg:py-28 relative overflow-hidden"
+    style={{ background: "linear-gradient(135deg, #071540 0%, #0f2557 55%, #142f85 100%)" }}
     aria-label="Pourquoi nous choisir"
   >
-    {/* Déco */}
-    <div className="absolute inset-0 opacity-5">
-      <div className="absolute top-10 right-10 w-96 h-96 bg-amber-400 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
-    </div>
+    {/* Déco fond */}
+    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#c9a84c]/5 rounded-full blur-3xl pointer-events-none" />
+    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/3 rounded-full blur-3xl pointer-events-none" />
+    <div className="absolute inset-0 opacity-3"
+         style={{ backgroundImage: "radial-gradient(circle, rgba(201,168,76,0.1) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
 
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-14">
@@ -91,25 +35,24 @@ export const WhyUs: React.FC = () => (
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {reasons.map((reason, i) => {
           const Icon = reason.icon;
           return (
             <div
               key={i}
-              className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1"
+              className="group relative bg-white/6 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
             >
-              <div
-                className={`w-12 h-12 bg-gradient-to-br ${reason.color} rounded-xl flex items-center justify-center mb-4 shadow-lg`}
-              >
-                <Icon className="w-6 h-6 text-white" />
+              {/* Accent line top */}
+              <div className="absolute top-0 left-6 right-6 h-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                   style={{ backgroundColor: reason.accent }} />
+
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                   style={{ backgroundColor: `${reason.accent}20` }}>
+                <Icon className="w-5 h-5" style={{ color: reason.accent }} />
               </div>
-              <h3 className="text-white font-bold text-base mb-2">
-                {reason.title}
-              </h3>
-              <p className="text-blue-200 text-sm leading-relaxed">
-                {reason.description}
-              </p>
+              <h3 className="text-white font-semibold text-sm mb-2 leading-snug">{reason.title}</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">{reason.desc}</p>
             </div>
           );
         })}

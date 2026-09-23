@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { CheckCircle, ChevronRight, Target, Eye, Heart } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle, ChevronRight } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const highlights = [
@@ -12,40 +13,53 @@ const highlights = [
   "Environnement sûr et bienveillant",
 ];
 
-const values = [
-  {
-    icon: Target,
-    title: "Excellence",
-    desc: "Nous visons les plus hauts standards éducatifs",
-    color: "text-blue-700",
-    bg: "bg-blue-50",
-  },
-  {
-    icon: Heart,
-    title: "Bienveillance",
-    desc: "Chaque élève est accompagné avec attention",
-    color: "text-amber-600",
-    bg: "bg-amber-50",
-  },
-  {
-    icon: Eye,
-    title: "Vision",
-    desc: "Former les citoyens et leaders de demain",
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
-  },
+const milestones = [
+  { value: "850+",   label: "Élèves" },
+  { value: "96%",    label: "Réussite" },
+  { value: "60+",    label: "Enseignants" },
+  { value: "25 ans", label: "Expertise" },
 ];
 
 export const AboutPreview: React.FC = () => (
   <section
     id="about-preview"
-    className="py-20 bg-white"
+    className="py-20 lg:py-28 bg-[#fafaf7]"
     aria-label="Présentation de l'établissement"
   >
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Colonne gauche — texte */}
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        {/* ── Colonne image ── */}
+        <div className="relative order-2 lg:order-1">
+          {/* Image principale */}
+          <div className="relative h-80 sm:h-96 lg:h-[480px] rounded-3xl overflow-hidden shadow-[0_16px_48px_rgba(15,37,87,0.18)]">
+            <Image
+              src="/Etablissement.jpeg"
+              alt="Complexe Scolaire Privé E.I.B"
+              fill
+              className="object-cover"
+              sizes="(max-width:1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f2557]/40 via-transparent to-transparent" />
+          </div>
+
+          {/* Badge flottant chiffres */}
+          <div className="absolute -bottom-6 -right-4 sm:-right-8 bg-white rounded-2xl shadow-[0_8px_32px_rgba(15,37,87,0.14)] p-5 grid grid-cols-2 gap-4 min-w-[200px]">
+            {milestones.map((m, i) => (
+              <div key={i} className="text-center">
+                <p className="text-lg font-bold text-[#0f2557] leading-none"
+                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>{m.value}</p>
+                <p className="text-[10px] text-slate-400 mt-0.5">{m.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Trait décoratif */}
+          <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-[#c9a84c]/25 rounded-2xl -z-10" />
+        </div>
+
+        {/* ── Colonne texte ── */}
+        <div className="order-1 lg:order-2">
           <SectionTitle
             pretitle="À propos de nous"
             title="Un complexe scolaire au service de l'excellence"
@@ -53,71 +67,22 @@ export const AboutPreview: React.FC = () => (
             align="left"
           />
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8 mb-8">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-8 mb-8">
             {highlights.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 text-sm">{item}</span>
+                <CheckCircle className="w-4 h-4 text-[#c9a84c] flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-slate-600">{item}</span>
               </li>
             ))}
           </ul>
 
           <Link
             href="/a-propos"
-            className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 bg-[#0f2557] hover:bg-[#142f85] text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             En savoir plus
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4" />
           </Link>
-        </div>
-
-        {/* Colonne droite — valeurs + image déco */}
-        <div className="space-y-4">
-          {/* Image placeholder / illustration */}
-          <div className="relative bg-gradient-to-br from-blue-900 to-blue-700 rounded-3xl p-8 text-white overflow-hidden mb-6">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/20 rounded-full blur-2xl" />
-            <div className="relative z-10">
-              <p className="text-2xl font-bold mb-2">25 ans d&apos;excellence</p>
-              <p className="text-blue-200 text-sm leading-relaxed">
-                Fondé à Pita, le Complexe Scolaire Privé Elhadj Ibrahima Barry
-                n&apos;a cessé d&apos;innover et d&apos;améliorer son offre
-                pédagogique pour accompagner chaque élève vers le succès.
-              </p>
-              <div className="mt-4 flex items-center gap-6">
-                <div>
-                  <p className="text-3xl font-bold text-amber-400">850+</p>
-                  <p className="text-blue-300 text-xs">Élèves</p>
-                </div>
-                <div className="w-px h-12 bg-white/20" />
-                <div>
-                  <p className="text-3xl font-bold text-amber-400">96%</p>
-                  <p className="text-blue-300 text-xs">Réussite</p>
-                </div>
-                <div className="w-px h-12 bg-white/20" />
-                <div>
-                  <p className="text-3xl font-bold text-amber-400">60+</p>
-                  <p className="text-blue-300 text-xs">Enseignants</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Cartes valeurs */}
-          <div className="grid grid-cols-3 gap-4">
-            {values.map((v, i) => {
-              const Icon = v.icon;
-              return (
-                <div
-                  key={i}
-                  className={`${v.bg} rounded-2xl p-4 text-center`}
-                >
-                  <Icon className={`w-8 h-8 ${v.color} mx-auto mb-2`} />
-                  <p className="font-bold text-gray-900 text-sm">{v.title}</p>
-                  <p className="text-gray-500 text-xs mt-1 leading-tight">{v.desc}</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </div>

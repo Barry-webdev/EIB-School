@@ -1,80 +1,184 @@
 @import "tailwindcss";
 
+/* ================================================================
+   DESIGN SYSTEM — E.I.B Complexe Scolaire Privé
+   Palette : Navy #0F2557 | Gold #C9A84C | Cream #FAFAF7
+   ================================================================ */
+
 @theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #1d4ed8;
-  --color-primary-700: #1e3a8a;
-  --color-primary-800: #1e3a8a;
-  --color-primary-900: #1e2d5a;
+  /* ── Couleurs primaires ── */
+  --color-navy-50:  #f0f4ff;
+  --color-navy-100: #dce6ff;
+  --color-navy-200: #b5c8ff;
+  --color-navy-300: #7a9fff;
+  --color-navy-400: #3d6cff;
+  --color-navy-500: #1a3fa6;
+  --color-navy-600: #142f85;
+  --color-navy-700: #0f2264;
+  --color-navy-800: #0f2557;
+  --color-navy-900: #071540;
 
-  --color-gold-50: #fffbeb;
-  --color-gold-100: #fef3c7;
-  --color-gold-200: #fde68a;
-  --color-gold-300: #fcd34d;
-  --color-gold-400: #fbbf24;
-  --color-gold-500: #f59e0b;
-  --color-gold-600: #d97706;
-  --color-gold-700: #b45309;
-  --color-gold-800: #92400e;
-  --color-gold-900: #78350f;
+  /* ── Or / Gold ── */
+  --color-gold-50:  #fdf9ee;
+  --color-gold-100: #f9efc8;
+  --color-gold-200: #f3db8d;
+  --color-gold-300: #e8c056;
+  --color-gold-400: #c9a84c;
+  --color-gold-500: #b08d35;
+  --color-gold-600: #8f6f22;
+  --color-gold-700: #6e5219;
+  --color-gold-800: #4d3910;
+  --color-gold-900: #2e2208;
 
-  --color-navy-50: #f0f4ff;
-  --color-navy-100: #e0e8ff;
-  --color-navy-600: #2b4cb3;
-  --color-navy-700: #1e3a8a;
-  --color-navy-800: #1a2f6e;
-  --color-navy-900: #0f1f4a;
+  /* ── Cream / Backgrounds ── */
+  --color-cream-50:  #fafaf7;
+  --color-cream-100: #f5f5ef;
+  --color-cream-200: #ebebdf;
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Playfair Display", Georgia, serif;
+  /* ── Sémantique ── */
+  --color-primary:   #0f2557;
+  --color-secondary: #c9a84c;
+  --color-accent:    #1a3fa6;
+
+  /* ── Typographie ── */
+  --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  /* ── Shadows custom ── */
+  --shadow-card:    0 2px 16px 0 rgba(15, 37, 87, 0.08);
+  --shadow-card-hover: 0 8px 32px 0 rgba(15, 37, 87, 0.16);
+  --shadow-header:  0 1px 24px 0 rgba(15, 37, 87, 0.10);
 }
 
+/* ================================================================
+   BASE
+   ================================================================ */
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     font-family: var(--font-sans);
-    @apply text-gray-800 bg-white;
+    @apply text-slate-800 bg-white;
+    line-height: 1.65;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
+
+  /* Scrollbar subtile */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 10px; }
 }
 
+/* ================================================================
+   UTILITAIRES
+   ================================================================ */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Typographie */
+  .text-balance { text-wrap: balance; }
+
+  .font-display { font-family: var(--font-display); }
+
+  /* Label pretitle */
+  .label-pretitle {
+    @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase;
+    color: #c9a84c;
   }
 
-  .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
+  /* Section padding */
+  .section-py { @apply py-20 lg:py-28; }
+  .section-py-sm { @apply py-14 lg:py-20; }
+
+  /* Container */
+  .container-eib {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+  /* Card surface */
+  .card-surface {
+    @apply bg-white rounded-2xl border border-slate-100;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .card-surface:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+  }
+
+  /* Divider gold */
+  .divider-gold {
+    @apply block w-12 h-0.5 rounded-full;
+    background-color: #c9a84c;
+  }
+
+  /* Gradient navy */
+  .bg-navy { background-color: #0f2557; }
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, #071540 0%, #0f2557 50%, #142f85 100%);
+  }
+
+  /* Text clamp */
+  .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+
+  /* Animations */
+  .animate-fade-up   { animation: fadeUp   0.6s cubic-bezier(.22,.68,0,1.2) forwards; }
+  .animate-fade-in   { animation: fadeIn   0.5s ease-out forwards; }
+  .animate-scale-in  { animation: scaleIn  0.4s cubic-bezier(.34,1.56,.64,1) forwards; }
+
+  /* Gold shimmer on hover */
+  .gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .gold-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(201,168,76,0.15) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .gold-shimmer:hover::after {
+    transform: translateX(100%);
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ================================================================
+   KEYFRAMES
+   ================================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ================================================================
+   FOCUS GLOBAL — accessible
+   ================================================================ */
+@layer base {
+  *:focus-visible {
+    outline: 2px solid #c9a84c;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }

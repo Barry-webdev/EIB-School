@@ -25,21 +25,21 @@ interface ButtonProps {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-blue-700 text-white hover:bg-blue-800 focus:ring-blue-500 shadow-md hover:shadow-lg",
+    "bg-[#0f2557] text-white hover:bg-[#142f85] focus:ring-[#0f2557] shadow-md hover:shadow-lg hover:-translate-y-0.5",
   secondary:
-    "bg-gray-800 text-white hover:bg-gray-900 focus:ring-gray-500 shadow-md hover:shadow-lg",
+    "bg-slate-800 text-white hover:bg-slate-900 focus:ring-slate-500 shadow-md hover:shadow-lg hover:-translate-y-0.5",
   outline:
-    "bg-transparent border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white focus:ring-blue-500",
+    "bg-transparent border-2 border-[#0f2557] text-[#0f2557] hover:bg-[#0f2557] hover:text-white focus:ring-[#0f2557]",
   ghost:
-    "bg-transparent text-blue-700 hover:bg-blue-50 focus:ring-blue-400",
+    "bg-transparent text-[#0f2557] hover:bg-[#0f2557]/8 focus:ring-[#0f2557]/40",
   gold:
-    "bg-amber-500 text-white hover:bg-amber-600 focus:ring-amber-400 shadow-md hover:shadow-lg",
+    "bg-[#c9a84c] text-white hover:bg-[#b08d35] focus:ring-[#c9a84c] shadow-md hover:shadow-lg hover:-translate-y-0.5",
 };
 
 const sizeClasses: Record<Size, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  sm: "px-4 py-2 text-sm gap-1.5",
+  md: "px-6 py-3 text-sm gap-2",
+  lg: "px-8 py-4 text-base gap-2",
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -58,56 +58,36 @@ export const Button: React.FC<ButtonProps> = ({
   external = false,
 }) => {
   const baseClasses = [
-    "inline-flex items-center justify-center gap-2 rounded-lg font-semibold",
-    "transition-all duration-200 ease-in-out",
+    "inline-flex items-center justify-center rounded-lg font-semibold",
+    "transition-all duration-200 ease-out",
     "focus:outline-none focus:ring-2 focus:ring-offset-2",
-    "disabled:opacity-50 disabled:cursor-not-allowed",
+    "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
     variantClasses[variant],
     sizeClasses[size],
     fullWidth ? "w-full" : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  ].filter(Boolean).join(" ");
 
   const content = (
     <>
       {loading && (
         <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
       )}
-      {!loading && Icon && iconPosition === "left" && <Icon className="w-5 h-5" />}
-      {children}
-      {!loading && Icon && iconPosition === "right" && <Icon className="w-5 h-5" />}
+      {!loading && Icon && iconPosition === "left" && <Icon className="w-4 h-4 flex-shrink-0" />}
+      <span>{children}</span>
+      {!loading && Icon && iconPosition === "right" && <Icon className="w-4 h-4 flex-shrink-0" />}
     </>
   );
 
   if (href) {
     if (external) {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={baseClasses}
-        >
-          {content}
-        </a>
-      );
+      return <a href={href} target="_blank" rel="noopener noreferrer" className={baseClasses}>{content}</a>;
     }
-    return (
-      <Link href={href} className={baseClasses}>
-        {content}
-      </Link>
-    );
+    return <Link href={href} className={baseClasses}>{content}</Link>;
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled || loading}
-      className={baseClasses}
-    >
+    <button type={type} onClick={onClick} disabled={disabled || loading} className={baseClasses}>
       {content}
     </button>
   );
