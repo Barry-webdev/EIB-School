@@ -79,37 +79,37 @@ const objectives = [
 
 const timeline = [
   {
-    year: "2000",
+    year: "2014",
     title: "Fondation de l'EIB",
     description:
       "L'Établissement d'Instruction de Base ouvre ses portes avec 3 classes et 85 élèves. La vision : offrir une éducation de qualité accessible.",
   },
   {
-    year: "2005",
+    year: "2015",
     title: "Ouverture du Collège",
     description:
       "Devant le succès du primaire, l'EIB crée sa section collège pour accompagner ses élèves dans la continuité de leur parcours.",
   },
   {
-    year: "2010",
+    year: "2016",
     title: "Nouveaux locaux",
     description:
       "Construction d'un nouveau bâtiment moderne avec laboratoire scientifique, salle informatique et bibliothèque.",
   },
   {
-    year: "2015",
+    year: "2017",
     title: "Ouverture du Lycée",
     description:
       "L'EIB devient un établissement complet maternelle-lycée avec l'ouverture de ses classes de seconde, première et terminale.",
   },
   {
-    year: "2020",
-    title: "20 ans d'excellence",
+    year: "2025",
+    title: "12 ans d'excellence",
     description:
-      "Célébration des 20 ans avec un taux de réussite record de 98% au baccalauréat et plus de 800 élèves inscrits.",
+      "Célébration des 12 ans avec un taux de réussite record de 98% au baccalauréat et plus de 800 élèves inscrits.",
   },
   {
-    year: "2025",
+    year: "2026",
     title: "Aujourd'hui",
     description:
       "L'EIB continue d'innover avec de nouveaux partenariats internationaux, des équipements de pointe, une pédagogie résolument tournée vers l'avenir — et l'ouverture de l'École Professionnelle de la Santé.",
