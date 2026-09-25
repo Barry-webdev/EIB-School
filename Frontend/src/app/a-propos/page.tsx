@@ -340,7 +340,7 @@ export default function AProposPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
               { icon: Users, value: "850+", label: "Élèves", color: "text-blue-700" },
-              { icon: Award, value: "25 ans", label: "D'expérience", color: "text-amber-600" },
+              { icon: Award, value: "12 ans", label: "D'expérience", color: "text-amber-600" },
               { icon: BookOpen, value: "60+", label: "Enseignants", color: "text-emerald-600" },
               { icon: Star, value: "96%", label: "Taux de réussite", color: "text-purple-600" },
             ].map((stat, i) => {
