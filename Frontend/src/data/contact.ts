@@ -2,7 +2,7 @@ import { ContactInfo } from "@/types";
 
 export const contactInfo: ContactInfo = {
   address: "Guéme, Commune de Pita, République de Guinée",
-  phone: "+224 620 22 95 84 / 620 47 13 92",
+  phone: "+224 628 40 42 70 / 620 22 95 84",
   whatsapp: "+224 620 22 95 84",
   email: "gspeib224@gmail.com",
   hours: {

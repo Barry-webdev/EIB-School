@@ -180,18 +180,24 @@ export default function InscriptionsPage() {
       {/* Bannière inscription/réinscription */}
       <div className="bg-amber-500 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left flex-wrap">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                 <FileText className="w-5 h-5 text-white" />
               </div>
               <div>
-                <span className="text-white font-bold text-lg">
-                  Inscription &amp; Réinscription :
-                </span>{" "}
-                <span className="text-white text-2xl font-extrabold">
-                  50 000 GNF
-                </span>
+                <span className="text-white font-bold">Enseignement général :</span>{" "}
+                <span className="text-white text-xl font-extrabold">50 000 GNF</span>
+              </div>
+            </div>
+            <span className="hidden sm:block w-px h-8 bg-white/30" />
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <FileText className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <span className="text-white font-bold">École Professionnelle de la Santé :</span>{" "}
+                <span className="text-white text-xl font-extrabold">100 000 GNF</span>
               </div>
             </div>
             <span className="hidden sm:block w-px h-8 bg-white/30" />
@@ -341,6 +347,63 @@ export default function InscriptionsPage() {
                     <td className="px-4 py-4 text-center font-extrabold text-rose-700 text-sm bg-rose-100">
                       {fee.annuel}
                     </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* ── Tableau 3 : Filières & tarifs École Professionnelle de la Santé ── */}
+          <SectionTitle
+            pretitle="École Professionnelle de la Santé — Filières"
+            title="Tarifs par filière"
+            subtitle="Inscription : 100 000 GNF (distinct des frais d'inscription de l'enseignement général)"
+            align="center"
+            className="mb-6 mt-14"
+          />
+
+          {/* Filières disponibles */}
+          <div className="flex flex-wrap gap-2 justify-center mb-5">
+            {["Infirmier d'État", "Sage Femme d'État", "Technicien de Laboratoire", "Technicien de Santé Communautaire (TSC)", "Agent Technique de la Santé (ATS)"].map((f, i) => (
+              <span key={i} className="inline-flex items-center gap-1.5 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                ✅ {f}
+              </span>
+            ))}
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-rose-200 shadow-sm">
+            <table className="w-full min-w-[500px]">
+              <thead className="bg-gradient-to-r from-rose-700 to-red-800 text-white">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wide w-8">N°</th>
+                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wide">Niveau / Filière</th>
+                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide">1ère Tranche</th>
+                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide">2ème Tranche</th>
+                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide bg-rose-900">Annuel</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-rose-100">
+                {[
+                  { num: 1, icon: "🩺", level: "Infirmier d'État",           t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-red-50",    badge: "bg-red-100 text-red-800" },
+                  { num: 2, icon: "👩‍⚕️", level: "Sage Femme d'État",          t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-rose-50",  badge: "bg-rose-100 text-rose-800" },
+                  { num: 3, icon: "🔬", level: "Technicien de Laboratoire",   t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-amber-50", badge: "bg-amber-100 text-amber-800" },
+                  { num: 4, icon: "🏥", level: "TSC / ATS",                   t1: "1 600 000 GNF", t2: "1 000 000 GNF", annuel: "2 600 000 GNF", color: "bg-slate-50", badge: "bg-slate-100 text-slate-800" },
+                ].map((fee) => (
+                  <tr key={fee.num} className={`${fee.color} hover:brightness-95 transition-all`}>
+                    <td className="px-4 py-4 text-center">
+                      <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mx-auto ${fee.badge}`}>
+                        {fee.num}
+                      </span>
+                    </td>
+                    <td className="px-4 py-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{fee.icon}</span>
+                        <span className="font-bold text-gray-900 text-sm">{fee.level}</span>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4 text-center text-gray-700 text-sm font-medium">{fee.t1}</td>
+                    <td className="px-4 py-4 text-center text-gray-700 text-sm">{fee.t2}</td>
+                    <td className="px-4 py-4 text-center font-extrabold text-rose-700 text-sm bg-rose-100">{fee.annuel}</td>
                   </tr>
                 ))}
               </tbody>
