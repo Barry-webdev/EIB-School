@@ -122,7 +122,7 @@ export default function AProposPage() {
       <PageHero
         pretitle="Notre établissement"
         title="À propos de l'E.I.B"
-        subtitle="Depuis plus de 25 ans, le Complexe Scolaire Privé Elhadj Ibrahima Barry forme des générations d'élèves avec rigueur et dévouement."
+        subtitle="Depuis plus de 12 ans, le Complexe Scolaire Privé Elhadj Ibrahima Barry forme des générations d'élèves avec rigueur et dévouement."
       />
 
       {/* Historique */}
@@ -132,20 +132,20 @@ export default function AProposPage() {
             <div className="lg:w-1/2">
               <SectionTitle
                 pretitle="Notre histoire"
-                title="25 ans au service de l'éducation"
+                title="12 ans au service de l'éducation"
                 subtitle="L'EIB est né d'une conviction simple : chaque enfant mérite le meilleur pour son avenir."
                 align="left"
               />
               <div className="mt-8 space-y-4">
                 <p className="text-gray-600 leading-relaxed">
-                  Fondé en 2000 par une équipe de pédagogues passionnés,
+                  Fondé en 2014 par une équipe de pédagogues passionnés,
                   l&apos;Établissement d&apos;Instruction de Base s&apos;est
                   construit sur une ambition claire : offrir une éducation
                   d&apos;excellence accessible, dans un cadre de vie scolaire
                   épanouissant.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  En vingt-cinq ans, nous avons accueilli des milliers
+                  En douze ans, nous avons accueilli des milliers
                   d&apos;élèves, construit une équipe pédagogique d&apos;exception
                   et développé des infrastructures modernes. Notre taux de
                   réussite constant témoigne de l&apos;engagement quotidien de
