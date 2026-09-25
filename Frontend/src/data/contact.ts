@@ -6,8 +6,8 @@ export const contactInfo: ContactInfo = {
   whatsapp: "+224 620 22 95 84",
   email: "gspeib224@gmail.com",
   hours: {
-    weekdays: "Lundi – Vendredi : 7h30 – 18h00",
-    saturday: "Samedi : 8h00 – 13h00",
+    weekdays: "Lundi – Vendredi : 7h30 – 17h00",
+    saturday: "Samedi : 7h30 – 14h00",
     sunday: "Dimanche : Fermé",
   },
   socialLinks: [

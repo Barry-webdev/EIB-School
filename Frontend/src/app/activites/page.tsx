@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageHero } from "@/components/ui/PageHero";
 import { ActivityCard } from "@/components/features/ActivityCard";
 import { activitiesData } from "@/data/activities";
 import type { ActivityCategory } from "@/types";
@@ -76,24 +77,11 @@ export default function ActivitesPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-amber-400 rounded-full blur-3xl" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-amber-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-            Épanouissement et vie scolaire
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Activités & Vie scolaire
-          </h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">
-            À l&apos;EIB, l&apos;école est bien plus que les cours.
-            Découvrez la richesse de notre vie scolaire.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        pretitle="Épanouissement et vie scolaire"
+        title="Activités & Vie scolaire"
+        subtitle="À l'E.I.B, l'école est bien plus que les cours. Découvrez la richesse de notre vie scolaire."
+      />
 
       {/* Sections vie scolaire */}
       <section className="py-16 bg-white">

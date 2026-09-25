@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageHero } from "@/components/ui/PageHero";
 import { ContactForm } from "@/components/features/ContactForm";
 import { contactInfo } from "@/data/contact";
 
@@ -53,22 +54,11 @@ const faqItems = [
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
-      {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-amber-400 rounded-full blur-3xl" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-amber-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-            Écrivez-nous
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Contactez-nous</h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">
-            Notre équipe est disponible pour répondre à toutes vos questions.
-            N&apos;hésitez pas à nous contacter.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        pretitle="Écrivez-nous"
+        title="Contactez-nous"
+        subtitle="Notre équipe est disponible pour répondre à toutes vos questions. N'hésitez pas à nous contacter."
+      />
 
       {/* ── Coordonnées + Formulaire ── */}
       <section className="py-16 bg-white">

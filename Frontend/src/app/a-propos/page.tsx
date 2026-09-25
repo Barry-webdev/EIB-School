@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageHero } from "@/components/ui/PageHero";
 import { Card } from "@/components/ui/Card";
 import {
   Target,
@@ -118,26 +119,11 @@ const timeline = [
 export default function AProposPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero page */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-amber-400 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full blur-3xl" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-amber-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-            Notre établissement
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            À propos de l&apos;E.I.B
-          </h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">
-            Depuis plus de 25 ans, le Complexe Scolaire Privé Elhadj Ibrahima
-            Barry forme des générations d&apos;élèves brillants avec rigueur et
-            dévouement.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        pretitle="Notre établissement"
+        title="À propos de l'E.I.B"
+        subtitle="Depuis plus de 25 ans, le Complexe Scolaire Privé Elhadj Ibrahima Barry forme des générations d'élèves avec rigueur et dévouement."
+      />
 
       {/* Historique */}
       <section className="py-20 bg-white">
