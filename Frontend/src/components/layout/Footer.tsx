@@ -132,7 +132,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 mb-7">
               {[
                 { day: "Lundi – Vendredi", hours: "7h30 – 17h00" },
-                { day: "Samedi",           hours: "7h30 – 14h00" },
+                { day: "Samedi",           hours: "7h30 – 11h30" },
                 { day: "Dimanche",         hours: "Fermé" },
               ].map((h, i) => (
                 <li key={i} className="flex items-start gap-3">

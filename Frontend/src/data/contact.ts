@@ -7,7 +7,7 @@ export const contactInfo: ContactInfo = {
   email: "gspeib224@gmail.com",
   hours: {
     weekdays: "Lundi – Vendredi : 7h30 – 17h00",
-    saturday: "Samedi : 7h30 – 14h00",
+    saturday: "Samedi : 7h30 – 11h30",
     sunday: "Dimanche : Fermé",
   },
   socialLinks: [
