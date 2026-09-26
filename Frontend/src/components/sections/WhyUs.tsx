@@ -10,7 +10,7 @@ const reasons = [
   { icon: Globe,      title: "Ouverture sur le monde",   desc: "Partenariats internationaux, échanges culturels et programmes linguistiques renforcés.",                accent: "#7c3aed" },
   { icon: Shield,     title: "Environnement sécurisé",   desc: "Un cadre scolaire surveillé, bienveillant, où chaque élève peut s'épanouir sereinement.",              accent: "#0284c7" },
   { icon: BookOpen,   title: "Programme enrichi",        desc: "Activités parascolaires variées complétant le programme académique pour un développement global.",       accent: "#c9a84c" },
-  { icon: TrendingUp, title: "25 ans d'expérience",      desc: "Deux décennies de savoir-faire pédagogique au service des familles et de la réussite de leurs enfants.", accent: "#0f2557" },
+  { icon: TrendingUp, title: "12 ans d'expérience",      desc: "Deux décennies de savoir-faire pédagogique au service des familles et de la réussite de leurs enfants.", accent: "#0f2557" },
 ];
 
 export const WhyUs: React.FC = () => (
@@ -30,7 +30,7 @@ export const WhyUs: React.FC = () => (
         <SectionTitle
           pretitle="Notre différence"
           title="Pourquoi choisir l'E.I.B ?"
-          subtitle="Huit raisons pour lesquelles les familles de Pita nous font confiance depuis 25 ans."
+          subtitle="Huit raisons pour lesquelles les familles de Pita nous font confiance depuis 12 ans."
           light
         />
       </div>
@@ -60,3 +60,4 @@ export const WhyUs: React.FC = () => (
     </div>
   </section>
 );
+

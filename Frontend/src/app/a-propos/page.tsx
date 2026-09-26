@@ -104,9 +104,9 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "25 ans d'excellence",
+    title: "12 ans d'excellence",
     description:
-      "Célébration des 25 ans avec un taux de réussite record de 98% au baccalauréat et plus de 800 élèves inscrits.",
+      "Célébration des 12 ans avec un taux de réussite record de 98% au baccalauréat et plus de 800 élèves inscrits.",
   },
   {
     year: "2026",
@@ -122,7 +122,7 @@ export default function AProposPage() {
       <PageHero
         pretitle="Notre établissement"
         title="À propos de l'E.I.B"
-        subtitle="Depuis plus de 25 ans, le Complexe Scolaire Privé Elhadj Ibrahima Barry forme des générations d'élèves avec rigueur et dévouement."
+        subtitle="Depuis plus de 12 ans, le Complexe Scolaire Privé Elhadj Ibrahima Barry forme des générations d'élèves avec rigueur et dévouement."
       />
 
       {/* Historique */}
@@ -132,7 +132,7 @@ export default function AProposPage() {
             <div className="lg:w-1/2">
               <SectionTitle
                 pretitle="Notre histoire"
-                title="25 ans au service de l'éducation"
+                title="12 ans au service de l'éducation"
                 subtitle="L'EIB est né d'une conviction simple : chaque enfant mérite le meilleur pour son avenir."
                 align="left"
               />
@@ -340,7 +340,7 @@ export default function AProposPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
               { icon: Users, value: "850+", label: "Élèves", color: "text-blue-700" },
-              { icon: Award, value: "25 ans", label: "D'expérience", color: "text-amber-600" },
+              { icon: Award, value: "12 ans", label: "D'expérience", color: "text-amber-600" },
               { icon: BookOpen, value: "60+", label: "Enseignants", color: "text-emerald-600" },
               { icon: Star, value: "96%", label: "Taux de réussite", color: "text-purple-600" },
             ].map((stat, i) => {
@@ -359,3 +359,4 @@ export default function AProposPage() {
     </div>
   );
 }
+

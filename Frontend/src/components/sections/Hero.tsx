@@ -9,7 +9,7 @@ const stats = [
   { icon: Users,        value: "850+",  label: "Élèves" },
   { icon: BookOpen,     value: "60+",   label: "Enseignants" },
   { icon: Award,        value: "96%",   label: "Réussite" },
-  { icon: GraduationCap, value: "25 ans", label: "Expérience" },
+  { icon: GraduationCap, value: "12 ans", label: "Expérience" },
 ];
 
 export const Hero: React.FC = () => {
@@ -142,3 +142,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+

@@ -17,7 +17,7 @@ const milestones = [
   { value: "850+",   label: "Élèves" },
   { value: "96%",    label: "Réussite" },
   { value: "60+",    label: "Enseignants" },
-  { value: "25 ans", label: "Expertise" },
+  { value: "12 ans", label: "Expertise" },
 ];
 
 export const AboutPreview: React.FC = () => (
@@ -63,7 +63,7 @@ export const AboutPreview: React.FC = () => (
           <SectionTitle
             pretitle="À propos de nous"
             title="Un complexe scolaire au service de l'excellence"
-            subtitle="Depuis plus de 25 ans, le Complexe E.I.B forme des générations d'élèves à Pita, dans un environnement pédagogique rigoureux et stimulant."
+            subtitle="Depuis plus de 12 ans, le Complexe E.I.B forme des générations d'élèves à Pita, dans un environnement pédagogique rigoureux et stimulant."
             align="left"
           />
 
@@ -88,3 +88,4 @@ export const AboutPreview: React.FC = () => (
     </div>
   </section>
 );
+

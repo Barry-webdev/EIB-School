@@ -6,7 +6,7 @@ const stats = [
   { icon: GraduationCap, value: "60+",  label: "Enseignants",           sub: "Qualifiés et dévoués",    color: "#c9a84c" },
   { icon: Trophy,       value: "96%",   label: "Taux de réussite",      sub: "Aux examens nationaux",   color: "#059669" },
   { icon: BookOpen,     value: "5",     label: "Niveaux d'enseignement",sub: "De la maternelle à la Santé", color: "#7c3aed" },
-  { icon: Star,         value: "25 ans",label: "D'expérience",          sub: "Au service de l'éducation", color: "#c9a84c" },
+  { icon: Star,         value: "12 ans",label: "D'expérience",          sub: "Au service de l'éducation", color: "#c9a84c" },
   { icon: Clock,        value: "12+",   label: "Activités parascolaires",sub: "Sport, arts, sciences",  color: "#0284c7" },
 ];
 
@@ -40,3 +40,4 @@ export const StatsSection: React.FC = () => (
     </div>
   </section>
 );
+
