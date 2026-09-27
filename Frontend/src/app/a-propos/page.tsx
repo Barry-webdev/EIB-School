@@ -206,6 +206,8 @@ export default function AProposPage() {
                 name: "M. Sâa Alexis Dembadouno",
                 role: "Directeur",
                 dept: "École Maternelle",
+                phone: "+224 613 24 13 37",
+                tel: "+224613241337",
                 icon: "🌱",
                 color: "from-emerald-400 to-teal-500",
                 bg: "bg-emerald-50",
@@ -216,6 +218,8 @@ export default function AProposPage() {
                 name: "M. Tely Baïlo Diallo",
                 role: "Directeur",
                 dept: "École Primaire",
+                phone: "+224 620 47 13 92",
+                tel: "+224620471392",
                 icon: "📚",
                 color: "from-blue-400 to-indigo-500",
                 bg: "bg-blue-50",
@@ -226,6 +230,8 @@ export default function AProposPage() {
                 name: "M. Mamadou Baïla Barry",
                 role: "Directeur",
                 dept: "Secondaire (Collège & Lycée)",
+                phone: "+224 628 32 88 46",
+                tel: "+224628328846",
                 icon: "🎓",
                 color: "from-violet-400 to-purple-600",
                 bg: "bg-violet-50",
@@ -236,6 +242,8 @@ export default function AProposPage() {
                 name: "Dr Oumar Baïlo Kanté",
                 role: "Directeur",
                 dept: "École Professionnelle de la Santé",
+                phone: "+224 628 40 42 70",
+                tel: "+224628404270",
                 icon: "🏥",
                 color: "from-rose-400 to-red-600",
                 bg: "bg-rose-50",
@@ -262,9 +270,28 @@ export default function AProposPage() {
                   >
                     {director.name}
                   </h3>
-                  <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${director.bg} ${director.border} ${director.text}`}>
+                  <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${director.bg} ${director.border} ${director.text} mb-4`}>
                     {director.dept}
                   </span>
+                  {/* Contact */}
+                  <div className="flex flex-col gap-2 mt-1">
+                    <a
+                      href={`tel:${director.tel}`}
+                      className="flex items-center justify-center gap-2 text-xs text-slate-600 hover:text-[#0f2557] transition-colors"
+                    >
+                      <span className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-[10px]">📞</span>
+                      {director.phone}
+                    </a>
+                    <a
+                      href={`https://wa.me/${director.tel.replace("+", "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 text-xs text-emerald-600 hover:text-emerald-700 transition-colors"
+                    >
+                      <span className="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center text-[10px]">💬</span>
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
