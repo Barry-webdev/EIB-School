@@ -12,7 +12,6 @@ import {
   BookOpen,
   Award,
   CheckCircle,
-  Quote,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -191,50 +190,84 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Mot de la direction */}
+      {/* Équipe de direction */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            pretitle="Message"
-            title="Mot de la direction"
+            pretitle="Notre équipe"
+            title="L'équipe de direction"
+            subtitle="Quatre directeurs expérimentés au service de l'excellence pédagogique de l'E.I.B."
             align="center"
             className="mb-12"
           />
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 sm:p-12 relative">
-            <Quote className="absolute top-8 left-8 w-12 h-12 text-blue-100" />
-            <div className="relative z-10">
-              <p className="text-gray-700 text-lg leading-relaxed mb-6 italic">
-                &ldquo;À l&apos;EIB, nous croyons que chaque enfant porte en lui
-                un potentiel extraordinaire. Notre rôle en tant
-                qu&apos;éducateurs est de créer les conditions favorables à
-                l&apos;éclosion de ce potentiel.&rdquo;
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Depuis la fondation de notre établissement, nous avons eu
-                le privilège d&apos;accompagner des milliers d&apos;élèves
-                dans leur parcours scolaire et personnel. Chaque réussite,
-                chaque diplôme obtenu, chaque projet accompli nous remplit
-                d&apos;une immense fierté.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Nous nous engageons à maintenir les plus hauts standards
-                d&apos;excellence, à innover en permanence dans nos méthodes
-                pédagogiques et à offrir à chaque famille un partenariat de
-                confiance basé sur la transparence et le respect mutuel.
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl flex items-center justify-center">
-                  <span className="text-white text-xl font-bold">EIB</span>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">La Direction Générale</p>
-                  <p className="text-gray-500 text-sm">
-                    Complexe Scolaire Privé Elhadj Ibrahima Barry — E.I.B
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                name: "M. Sâa Alexis Dembadouno",
+                role: "Directeur",
+                dept: "École Maternelle",
+                icon: "🌱",
+                color: "from-emerald-400 to-teal-500",
+                bg: "bg-emerald-50",
+                border: "border-emerald-200",
+                text: "text-emerald-700",
+              },
+              {
+                name: "M. Tely Baïlo Diallo",
+                role: "Directeur",
+                dept: "École Primaire",
+                icon: "📚",
+                color: "from-blue-400 to-indigo-500",
+                bg: "bg-blue-50",
+                border: "border-blue-200",
+                text: "text-blue-700",
+              },
+              {
+                name: "M. Mamadou Baïla Barry",
+                role: "Directeur",
+                dept: "Secondaire (Collège & Lycée)",
+                icon: "🎓",
+                color: "from-violet-400 to-purple-600",
+                bg: "bg-violet-50",
+                border: "border-violet-200",
+                text: "text-violet-700",
+              },
+              {
+                name: "Dr Oumar Baïlo Kanté",
+                role: "Directeur",
+                dept: "École Professionnelle de la Santé",
+                icon: "🏥",
+                color: "from-rose-400 to-red-600",
+                bg: "bg-rose-50",
+                border: "border-rose-200",
+                text: "text-rose-700",
+              },
+            ].map((director, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+              >
+                {/* Header coloré */}
+                <div className={`bg-gradient-to-br ${director.color} p-6 text-white text-center`}>
+                  <div className="text-4xl mb-3">{director.icon}</div>
+                  <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">
+                    {director.role}
                   </p>
-                  <p className="text-gray-400 text-xs">Pita, Guinée</p>
+                </div>
+                {/* Infos */}
+                <div className="p-5 text-center">
+                  <h3
+                    className="font-bold text-[#0f2557] text-sm leading-tight mb-2"
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  >
+                    {director.name}
+                  </h3>
+                  <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${director.bg} ${director.border} ${director.text}`}>
+                    {director.dept}
+                  </span>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
