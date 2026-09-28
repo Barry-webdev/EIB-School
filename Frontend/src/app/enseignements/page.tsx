@@ -186,7 +186,7 @@ export default function EnseignementsPage() {
             <div className="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 {/* Colonne gauche — présentation */}
-                <div className="bg-gradient-to-br from-rose-500 to-red-700 p-8 text-white flex flex-col justify-between">
+                <div className="bg-gradient-to-br from-rose-600 to-red-700 p-8 text-white flex flex-col justify-between">
                   <div>
                     <div className="text-5xl mb-4">{ecoleSante.icon}</div>
                     <h3 className="text-2xl font-bold mb-2">{ecoleSante.name}</h3>
@@ -316,3 +316,4 @@ export default function EnseignementsPage() {
     </div>
   );
 }
+

@@ -97,8 +97,8 @@ const feesEnseignementGeneral = [
     t2: "300 000 GNF",
     t3: "300 000 GNF",
     annuel: "900 000 GNF",
-    color: "bg-emerald-50",
-    badge: "bg-emerald-100 text-emerald-800",
+    color: "bg-white hover:bg-slate-50",
+    badge: "bg-[#0f2557]/8 text-[#0f2557]",
   },
   {
     num: 2,
@@ -108,8 +108,8 @@ const feesEnseignementGeneral = [
     t2: "330 000 GNF",
     t3: "330 000 GNF",
     annuel: "990 000 GNF",
-    color: "bg-blue-50",
-    badge: "bg-blue-100 text-blue-800",
+    color: "bg-slate-50 hover:bg-slate-100",
+    badge: "bg-[#0f2557]/8 text-[#0f2557]",
   },
   {
     num: 3,
@@ -119,8 +119,8 @@ const feesEnseignementGeneral = [
     t2: "450 000 GNF",
     t3: "450 000 GNF",
     annuel: "1 350 000 GNF",
-    color: "bg-amber-50",
-    badge: "bg-amber-100 text-amber-800",
+    color: "bg-white hover:bg-slate-50",
+    badge: "bg-[#0f2557]/8 text-[#0f2557]",
   },
   {
     num: 4,
@@ -130,8 +130,8 @@ const feesEnseignementGeneral = [
     t2: "510 000 GNF",
     t3: "510 000 GNF",
     annuel: "1 530 000 GNF",
-    color: "bg-purple-50",
-    badge: "bg-purple-100 text-purple-800",
+    color: "bg-slate-50 hover:bg-slate-100",
+    badge: "bg-[#0f2557]/8 text-[#0f2557]",
   },
 ];
 
@@ -225,7 +225,7 @@ export default function InscriptionsPage() {
           {/* Table desktop / scroll mobile */}
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-6">
             <table className="w-full min-w-[640px]">
-              <thead className="bg-blue-900 text-white">
+              <thead className="bg-[#0f2557] text-white">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wide w-8">
                     N°
@@ -293,7 +293,7 @@ export default function InscriptionsPage() {
 
           <div className="overflow-x-auto rounded-2xl border border-rose-200 shadow-sm">
             <table className="w-full min-w-[640px]">
-              <thead className="bg-gradient-to-r from-rose-600 to-red-700 text-white">
+              <thead className="bg-[#0f2557] text-white">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wide w-8">
                     N°
@@ -313,14 +313,14 @@ export default function InscriptionsPage() {
                   <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide">
                     3ème Tranche
                   </th>
-                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide bg-rose-800">
+                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide bg-[#c9a84c]">
                     Écolage Annuel
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-rose-100">
                 {feesEcoleSante.map((fee) => (
-                  <tr key={fee.num} className="bg-rose-50 hover:bg-rose-100 transition-colors">
+                  <tr key={fee.num} className="bg-white hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-4 text-center">
                       <span className="w-7 h-7 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center text-xs font-bold mx-auto">
                         {fee.num}
@@ -344,7 +344,7 @@ export default function InscriptionsPage() {
                     <td className="px-4 py-4 text-center text-gray-700 text-sm">
                       {fee.t3}
                     </td>
-                    <td className="px-4 py-4 text-center font-extrabold text-rose-700 text-sm bg-rose-100">
+                    <td className="px-4 py-4 text-center font-extrabold text-[#0f2557] text-sm bg-[#c9a84c]/10">
                       {fee.annuel}
                     </td>
                   </tr>
@@ -373,13 +373,13 @@ export default function InscriptionsPage() {
 
           <div className="overflow-x-auto rounded-2xl border border-rose-200 shadow-sm">
             <table className="w-full min-w-[500px]">
-              <thead className="bg-gradient-to-r from-rose-700 to-red-800 text-white">
+              <thead className="bg-[#0f2557] text-white">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wide w-8">N°</th>
                   <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wide">Niveau / Filière</th>
                   <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide">1ère Tranche</th>
                   <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide">2ème Tranche</th>
-                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide bg-rose-900">Annuel</th>
+                  <th className="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide bg-[#c9a84c]">Annuel</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-rose-100">
@@ -403,7 +403,7 @@ export default function InscriptionsPage() {
                     </td>
                     <td className="px-4 py-4 text-center text-gray-700 text-sm font-medium">{fee.t1}</td>
                     <td className="px-4 py-4 text-center text-gray-700 text-sm">{fee.t2}</td>
-                    <td className="px-4 py-4 text-center font-extrabold text-rose-700 text-sm bg-rose-100">{fee.annuel}</td>
+                    <td className="px-4 py-4 text-center font-extrabold text-[#0f2557] text-sm bg-[#c9a84c]/10">{fee.annuel}</td>
                   </tr>
                 ))}
               </tbody>
@@ -548,3 +548,5 @@ export default function InscriptionsPage() {
     </div>
   );
 }
+
+

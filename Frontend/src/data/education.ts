@@ -23,7 +23,7 @@ export const educationLevels: EducationLevel[] = [
     ],
     ageRange: "3 - 5 ans",
     icon: "🌱",
-    color: "from-emerald-400 to-teal-500",
+    color: "from-emerald-500 to-teal-600",
   },
   {
     id: "primaire",
@@ -49,7 +49,7 @@ export const educationLevels: EducationLevel[] = [
     ],
     ageRange: "6 - 11 ans",
     icon: "📚",
-    color: "from-blue-400 to-indigo-500",
+    color: "from-blue-600 to-indigo-700",
   },
   {
     id: "college",
@@ -77,7 +77,7 @@ export const educationLevels: EducationLevel[] = [
     ],
     ageRange: "11 - 15 ans",
     icon: "🎓",
-    color: "from-violet-400 to-purple-600",
+    color: "from-violet-600 to-purple-700",
   },
   {
     id: "lycee",
@@ -103,7 +103,7 @@ export const educationLevels: EducationLevel[] = [
     ],
     ageRange: "15 - 18 ans",
     icon: "🏆",
-    color: "from-amber-400 to-orange-500",
+    color: "from-[#c9a84c] to-amber-600",
   },
   {
     id: "ecole-sante",
@@ -129,6 +129,7 @@ export const educationLevels: EducationLevel[] = [
     ],
     ageRange: "18 ans et plus",
     icon: "🏥",
-    color: "from-rose-400 to-red-600",
+    color: "from-rose-600 to-red-700",
   },
 ];
+
