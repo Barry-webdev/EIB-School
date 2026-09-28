@@ -97,8 +97,8 @@ const feesEnseignementGeneral = [
     t2: "300 000 GNF",
     t3: "300 000 GNF",
     annuel: "900 000 GNF",
-    color: "bg-white hover:bg-slate-50",
-    badge: "bg-[#0f2557]/8 text-[#0f2557]",
+    color: "bg-white hover:bg-slate-50 transition-colors",
+    badge: "bg-[#0f2557]/10 text-[#0f2557] font-bold",
   },
   {
     num: 2,
@@ -108,8 +108,8 @@ const feesEnseignementGeneral = [
     t2: "330 000 GNF",
     t3: "330 000 GNF",
     annuel: "990 000 GNF",
-    color: "bg-slate-50 hover:bg-slate-100",
-    badge: "bg-[#0f2557]/8 text-[#0f2557]",
+    color: "bg-slate-50 hover:bg-slate-100 transition-colors",
+    badge: "bg-[#0f2557]/10 text-[#0f2557] font-bold",
   },
   {
     num: 3,
@@ -119,8 +119,8 @@ const feesEnseignementGeneral = [
     t2: "450 000 GNF",
     t3: "450 000 GNF",
     annuel: "1 350 000 GNF",
-    color: "bg-white hover:bg-slate-50",
-    badge: "bg-[#0f2557]/8 text-[#0f2557]",
+    color: "bg-white hover:bg-slate-50 transition-colors",
+    badge: "bg-[#0f2557]/10 text-[#0f2557] font-bold",
   },
   {
     num: 4,
@@ -130,8 +130,8 @@ const feesEnseignementGeneral = [
     t2: "510 000 GNF",
     t3: "510 000 GNF",
     annuel: "1 530 000 GNF",
-    color: "bg-slate-50 hover:bg-slate-100",
-    badge: "bg-[#0f2557]/8 text-[#0f2557]",
+    color: "bg-slate-50 hover:bg-slate-100 transition-colors",
+    badge: "bg-[#0f2557]/10 text-[#0f2557] font-bold",
   },
 ];
 
@@ -252,7 +252,7 @@ export default function InscriptionsPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {feesEnseignementGeneral.map((fee) => (
-                  <tr key={fee.num} className={`${fee.color} hover:brightness-95 transition-all`}>
+                  <tr key={fee.num} className="bg-white hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-4 text-center">
                       <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mx-auto ${fee.badge}`}>
                         {fee.num}
@@ -344,7 +344,7 @@ export default function InscriptionsPage() {
                     <td className="px-4 py-4 text-center text-gray-700 text-sm">
                       {fee.t3}
                     </td>
-                    <td className="px-4 py-4 text-center font-extrabold text-[#0f2557] text-sm bg-[#c9a84c]/10">
+                    <td className="px-4 py-4 text-center font-extrabold text-[#0f2557] text-sm bg-[#c9a84c]/15">
                       {fee.annuel}
                     </td>
                   </tr>
@@ -389,7 +389,7 @@ export default function InscriptionsPage() {
                   { num: 3, icon: "🔬", level: "Technicien de Laboratoire",   t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-amber-50", badge: "bg-amber-100 text-amber-800" },
                   { num: 4, icon: "🏥", level: "TSC / ATS",                   t1: "1 600 000 GNF", t2: "1 000 000 GNF", annuel: "2 600 000 GNF", color: "bg-slate-50", badge: "bg-slate-100 text-slate-800" },
                 ].map((fee) => (
-                  <tr key={fee.num} className={`${fee.color} hover:brightness-95 transition-all`}>
+                  <tr key={fee.num} className="bg-white hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-4 text-center">
                       <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mx-auto ${fee.badge}`}>
                         {fee.num}
@@ -403,7 +403,7 @@ export default function InscriptionsPage() {
                     </td>
                     <td className="px-4 py-4 text-center text-gray-700 text-sm font-medium">{fee.t1}</td>
                     <td className="px-4 py-4 text-center text-gray-700 text-sm">{fee.t2}</td>
-                    <td className="px-4 py-4 text-center font-extrabold text-[#0f2557] text-sm bg-[#c9a84c]/10">{fee.annuel}</td>
+                    <td className="px-4 py-4 text-center font-extrabold text-[#0f2557] text-sm bg-[#c9a84c]/15">{fee.annuel}</td>
                   </tr>
                 ))}
               </tbody>
@@ -548,5 +548,6 @@ export default function InscriptionsPage() {
     </div>
   );
 }
+
 
 

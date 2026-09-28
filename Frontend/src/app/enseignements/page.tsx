@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Target,
   Stethoscope,
+  GraduationCap,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -19,10 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function EnseignementsPage() {
-  // Séparer les niveaux scolaires classiques de l'école professionnelle
-  const niveauxScolaires = educationLevels.filter(
-    (l) => l.id !== "ecole-sante"
-  );
+  const niveauxScolaires = educationLevels.filter((l) => l.id !== "ecole-sante");
   const ecoleSante = educationLevels.find((l) => l.id === "ecole-sante");
 
   return (
@@ -33,38 +31,26 @@ export default function EnseignementsPage() {
         subtitle="De la maternelle au lycée, et jusqu'aux formations professionnelles de santé — un parcours complet pour chaque élève."
       />
 
-      {/* Progression visuelle */}
-      <section className="py-16 bg-white">
+      {/* Frise de progression */}
+      <section className="py-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <SectionTitle
-              pretitle="Parcours complet"
-              title="De 3 ans à la vie professionnelle"
-              subtitle="L'EIB propose un cursus continu et cohérent, de la maternelle jusqu'aux formations professionnelles supérieures."
-            />
-          </div>
-
-          {/* Frise de progression */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 flex-wrap">
             {educationLevels.map((level, i) => (
               <div key={level.id} className="flex items-center">
                 <div className="relative">
-                  <div
-                    className={`bg-gradient-to-br ${level.color} text-white rounded-2xl px-5 py-3 text-center min-w-[90px]`}
-                  >
+                  <div className="bg-[#0f2557] text-white rounded-2xl px-5 py-3 text-center min-w-[90px] hover:bg-[#142f85] transition-colors">
                     <div className="text-2xl mb-1">{level.icon}</div>
                     <p className="font-bold text-xs">{level.shortName}</p>
-                    <p className="text-white/80 text-xs">{level.ageRange}</p>
+                    <p className="text-white/70 text-xs">{level.ageRange}</p>
                   </div>
-                  {/* Badge "Nouveau" pour l'école de santé */}
                   {level.id === "ecole-sante" && (
-                    <span className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
+                    <span className="absolute -top-2 -right-2 bg-[#c9a84c] text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
                       Nouveau
                     </span>
                   )}
                 </div>
                 {i < educationLevels.length - 1 && (
-                  <ChevronRight className="w-6 h-6 text-gray-300 mx-2 flex-shrink-0 rotate-90 sm:rotate-0" />
+                  <ChevronRight className="w-5 h-5 text-slate-300 mx-2 flex-shrink-0 rotate-90 sm:rotate-0" />
                 )}
               </div>
             ))}
@@ -72,76 +58,81 @@ export default function EnseignementsPage() {
         </div>
       </section>
 
-      {/* ── Niveaux scolaires classiques ── */}
-      <section className="py-8 bg-gray-50">
+      {/* ── Niveaux scolaires ── */}
+      <section className="py-12 bg-[#fafaf7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             pretitle="Enseignement général"
             title="Maternelle · Primaire · Collège · Lycée"
             align="left"
-            className="mb-8 pb-2 border-b border-gray-200"
+            className="mb-8 pb-3 border-b border-slate-200"
           />
-          <div className="space-y-10 mt-8">
+          <div className="space-y-6 mt-8">
             {niveauxScolaires.map((level) => (
               <article
                 key={level.id}
                 id={level.id}
-                className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3">
-                  {/* En-tête coloré */}
-                  <div
-                    className={`bg-gradient-to-br ${level.color} p-8 text-white flex flex-col justify-between`}
-                  >
+                  {/* Colonne gauche — Navy uniforme */}
+                  <div className="bg-[#0f2557] p-8 text-white flex flex-col justify-between">
                     <div>
                       <div className="text-5xl mb-4">{level.icon}</div>
-                      <h2 className="text-2xl font-bold mb-2">{level.name}</h2>
-                      <div className="flex items-center gap-2 text-white/80 text-sm mb-4">
+                      <h2
+                        className="text-2xl font-bold mb-2"
+                        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                      >
+                        {level.name}
+                      </h2>
+                      <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
                         <Users className="w-4 h-4" />
                         <span>{level.ageRange}</span>
                       </div>
-                      <p className="text-white/90 text-sm leading-relaxed">
+                      <p className="text-slate-300 text-sm leading-relaxed">
                         {level.description}
                       </p>
                     </div>
                     <Link
                       href="/inscriptions"
-                      className="mt-6 inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors border border-white/30 w-fit"
+                      className="mt-6 inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#b08d35] text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors w-fit"
                     >
                       S&apos;inscrire à ce niveau
                       <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>
 
-                  {/* Contenu détaillé */}
+                  {/* Colonne droite — contenu */}
                   <div className="lg:col-span-2 p-8">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                      {/* Matières */}
                       <div>
-                        <h3 className="flex items-center gap-2 font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">
-                          <BookOpen className="w-5 h-5 text-blue-700" />
+                        <h3 className="flex items-center gap-2 font-bold text-[#0f2557] mb-4 text-xs uppercase tracking-widest">
+                          <BookOpen className="w-4 h-4 text-[#c9a84c]" />
                           Matières enseignées
                         </h3>
                         <div className="flex flex-wrap gap-2">
                           {level.subjects.map((subject, i) => (
                             <span
                               key={i}
-                              className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-700 font-medium"
+                              className="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-700 font-medium"
                             >
                               {subject}
                             </span>
                           ))}
                         </div>
                       </div>
+                      {/* Objectifs */}
                       <div>
-                        <h3 className="flex items-center gap-2 font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">
-                          <Target className="w-5 h-5 text-amber-600" />
+                        <h3 className="flex items-center gap-2 font-bold text-[#0f2557] mb-4 text-xs uppercase tracking-widest">
+                          <Target className="w-4 h-4 text-[#c9a84c]" />
                           Objectifs pédagogiques
                         </h3>
                         <ul className="space-y-2.5">
                           {level.objectives.map((obj, i) => (
                             <li key={i} className="flex items-start gap-2.5">
-                              <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                              <span className="text-gray-600 text-sm">{obj}</span>
+                              <CheckCircle className="w-4 h-4 text-[#c9a84c] flex-shrink-0 mt-0.5" />
+                              <span className="text-slate-600 text-sm">{obj}</span>
                             </li>
                           ))}
                         </ul>
@@ -157,49 +148,52 @@ export default function EnseignementsPage() {
 
       {/* ── École Professionnelle de la Santé ── */}
       {ecoleSante && (
-        <section
-          id={ecoleSante.id}
-          className="py-16 bg-gradient-to-br from-rose-50 to-red-50 border-t-4 border-rose-500"
-        >
+        <section id={ecoleSante.id} className="py-12 bg-white border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* En-tête section */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 pb-3 border-b border-slate-200">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Stethoscope className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 bg-[#0f2557] rounded-xl flex items-center justify-center shadow-sm">
+                  <Stethoscope className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-rose-600 block">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#c9a84c]">
                     Formation professionnelle supérieure
                   </span>
-                  <h2 className="text-2xl font-bold text-gray-900">
+                  <h2
+                    className="text-xl font-bold text-[#0f2557]"
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  >
                     École Professionnelle de la Santé
                   </h2>
                 </div>
               </div>
-              <span className="sm:ml-auto inline-flex items-center gap-1.5 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
-                ✦ Nouveau à l&apos;EIB
+              <span className="sm:ml-auto inline-flex items-center gap-1.5 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                ✦ Nouveau à l&apos;E.I.B
               </span>
             </div>
 
-            {/* Carte principale */}
-            <div className="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden">
+            {/* Carte santé — même style Navy */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-3">
-                {/* Colonne gauche — présentation */}
-                <div className="bg-gradient-to-br from-rose-600 to-red-700 p-8 text-white flex flex-col justify-between">
+                <div className="bg-[#0f2557] p-8 text-white flex flex-col justify-between">
                   <div>
                     <div className="text-5xl mb-4">{ecoleSante.icon}</div>
-                    <h3 className="text-2xl font-bold mb-2">{ecoleSante.name}</h3>
-                    <div className="flex items-center gap-2 text-white/80 text-sm mb-4">
+                    <h3
+                      className="text-2xl font-bold mb-2"
+                      style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    >
+                      {ecoleSante.name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
                       <Users className="w-4 h-4" />
                       <span>{ecoleSante.ageRange}</span>
                     </div>
-                    <p className="text-white/90 text-sm leading-relaxed mb-4">
+                    <p className="text-slate-300 text-sm leading-relaxed mb-4">
                       {ecoleSante.description}
                     </p>
-                    {/* Prérequis */}
-                    <div className="bg-white/10 border border-white/20 rounded-xl p-4">
-                      <p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-2">
+                    <div className="bg-white/10 border border-white/20 rounded-xl p-3">
+                      <p className="text-xs font-bold uppercase tracking-wide text-white/60 mb-1">
                         Condition d&apos;accès
                       </p>
                       <p className="text-white text-sm font-medium">
@@ -209,45 +203,41 @@ export default function EnseignementsPage() {
                   </div>
                   <Link
                     href="/inscriptions"
-                    className="mt-6 inline-flex items-center gap-2 bg-white text-rose-600 hover:bg-rose-50 font-bold px-4 py-2.5 rounded-xl text-sm transition-colors w-fit shadow"
+                    className="mt-6 inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#b08d35] text-white font-bold px-4 py-2.5 rounded-xl text-sm transition-colors w-fit"
                   >
                     S&apos;inscrire à l&apos;école de santé
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                {/* Colonne droite — matières + objectifs */}
                 <div className="lg:col-span-2 p-8">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    {/* Modules de formation */}
                     <div>
-                      <h3 className="flex items-center gap-2 font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">
-                        <BookOpen className="w-5 h-5 text-rose-600" />
+                      <h3 className="flex items-center gap-2 font-bold text-[#0f2557] mb-4 text-xs uppercase tracking-widest">
+                        <BookOpen className="w-4 h-4 text-[#c9a84c]" />
                         Modules de formation
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {ecoleSante.subjects.map((subject, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1.5 bg-rose-50 border border-rose-200 rounded-full text-xs text-rose-700 font-medium"
+                            className="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-700 font-medium"
                           >
                             {subject}
                           </span>
                         ))}
                       </div>
                     </div>
-
-                    {/* Objectifs */}
                     <div>
-                      <h3 className="flex items-center gap-2 font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">
-                        <Target className="w-5 h-5 text-rose-600" />
+                      <h3 className="flex items-center gap-2 font-bold text-[#0f2557] mb-4 text-xs uppercase tracking-widest">
+                        <Target className="w-4 h-4 text-[#c9a84c]" />
                         Objectifs de formation
                       </h3>
                       <ul className="space-y-2.5">
                         {ecoleSante.objectives.map((obj, i) => (
                           <li key={i} className="flex items-start gap-2.5">
-                            <CheckCircle className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-600 text-sm">{obj}</span>
+                            <CheckCircle className="w-4 h-4 text-[#c9a84c] flex-shrink-0 mt-0.5" />
+                            <span className="text-slate-600 text-sm">{obj}</span>
                           </li>
                         ))}
                       </ul>
@@ -255,27 +245,26 @@ export default function EnseignementsPage() {
                   </div>
 
                   {/* Débouchés */}
-                  <div className="mt-8 pt-6 border-t border-gray-100">
-                    <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide mb-4">
-                      🩺 Débouchés professionnels
+                  <div className="mt-8 pt-6 border-t border-slate-100">
+                    <h3 className="font-bold text-[#0f2557] text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                      <GraduationCap className="w-4 h-4 text-[#c9a84c]" />
+                      Débouchés professionnels
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {[
-                        "Infirmier(ère) diplômé(e)",
-                        "Aide-soignant(e)",
+                        "Infirmier(ère) d'État",
+                        "Sage-Femme d'État",
                         "Technicien de laboratoire",
-                        "Agent de santé communautaire",
+                        "Agent de santé (TSC)",
+                        "Agent Technique (ATS)",
                         "Assistant médical",
-                        "Sage-femme",
                       ].map((job, i) => (
                         <div
                           key={i}
-                          className="flex items-center gap-2 bg-rose-50 border border-rose-100 rounded-lg px-3 py-2"
+                          className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-rose-500 flex-shrink-0" />
-                          <span className="text-xs text-gray-700 font-medium">
-                            {job}
-                          </span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#c9a84c] flex-shrink-0" />
+                          <span className="text-xs text-slate-700 font-medium">{job}</span>
                         </div>
                       ))}
                     </div>
@@ -287,26 +276,28 @@ export default function EnseignementsPage() {
         </section>
       )}
 
-      {/* CTA Inscription */}
-      <section className="py-16 bg-amber-500">
+      {/* CTA */}
+      <section className="py-14 bg-[#0f2557]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Prêt à rejoindre l&apos;EIB ?
+          <h2
+            className="text-3xl font-bold text-white mb-4"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            Prêt à rejoindre l&apos;E.I.B ?
           </h2>
-          <p className="text-amber-100 text-lg mb-8">
-            Les inscriptions sont ouvertes pour tous les niveaux, de la
-            maternelle à l&apos;École Professionnelle de la Santé.
+          <p className="text-slate-300 text-base mb-8">
+            Les inscriptions sont ouvertes pour tous les niveaux.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/inscriptions"
-              className="bg-white text-amber-600 font-bold px-8 py-3.5 rounded-xl hover:bg-amber-50 transition-colors shadow-lg"
+              className="bg-[#c9a84c] hover:bg-[#b08d35] text-white font-bold px-8 py-3.5 rounded-xl transition-colors shadow-lg"
             >
               Voir les inscriptions
             </Link>
             <Link
               href="/contact"
-              className="border-2 border-white text-white font-bold px-8 py-3.5 rounded-xl hover:bg-white/10 transition-colors"
+              className="border-2 border-white/30 hover:border-white/60 text-white font-bold px-8 py-3.5 rounded-xl transition-all"
             >
               Nous contacter
             </Link>
@@ -316,4 +307,3 @@ export default function EnseignementsPage() {
     </div>
   );
 }
-
