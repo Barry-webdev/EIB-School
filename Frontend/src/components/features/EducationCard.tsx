@@ -40,7 +40,6 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
           />
           <div className="absolute inset-0 bg-[#0f2557]/65" />
           <div className="relative z-10 p-4">
-            <div className="text-3xl mb-1.5">{level.icon}</div>
             <h3
               className="font-bold text-sm text-white leading-tight mb-1"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
