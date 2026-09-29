@@ -23,15 +23,15 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
       )}
 
       {/* Header */}
-      {(isSante || level.id === "lycee" || level.id === "maternelle" || level.id === "college") ? (
-        /* Image réelle pour les niveaux qui en ont une */
+      {(isSante || level.id === "lycee" || level.id === "maternelle" || level.id === "college" || level.id === "primaire") ? (
         <div className="relative h-28 overflow-hidden flex-shrink-0">
           <Image
             src={
-              isSante         ? "/Santé.jpeg"    :
-              level.id === "lycee"    ? "/Lycée.jpeg"    :
+              isSante                   ? "/Santé.jpeg"      :
+              level.id === "lycee"      ? "/Lycée.jpeg"      :
               level.id === "maternelle" ? "/Maternelle.jpeg" :
-              "/Collège.jpeg"
+              level.id === "college"    ? "/Collège.jpeg"    :
+              "/Primaire.jpeg"
             }
             alt={level.name}
             fill
