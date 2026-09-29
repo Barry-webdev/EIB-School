@@ -33,7 +33,6 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
             className="object-cover object-center"
             sizes="(max-width:640px) 100vw, 300px"
           />
-          {/* Overlay navy pour lisibilité */}
           <div className="absolute inset-0 bg-[#0f2557]/65" />
           <div className="relative z-10 p-4">
             <div className="text-3xl mb-1.5">{level.icon}</div>
@@ -47,6 +46,31 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
               <Users className="w-3 h-3" />
               {level.ageRange}
               <span className="text-white/55">· Bac requis</span>
+            </p>
+          </div>
+        </div>
+      ) : level.id === "lycee" ? (
+        /* Image lycée */
+        <div className="relative h-28 overflow-hidden flex-shrink-0">
+          <Image
+            src="/Lycée.jpeg"
+            alt="Lycée"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width:640px) 100vw, 300px"
+          />
+          <div className="absolute inset-0 bg-[#0f2557]/65" />
+          <div className="relative z-10 p-4">
+            <div className="text-3xl mb-1.5">{level.icon}</div>
+            <h3
+              className="font-bold text-sm text-white leading-tight mb-1"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              {level.name}
+            </h3>
+            <p className="text-white/75 text-xs flex items-center gap-1.5">
+              <Users className="w-3 h-3" />
+              {level.ageRange}
             </p>
           </div>
         </div>
