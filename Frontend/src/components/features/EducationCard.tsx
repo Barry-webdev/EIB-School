@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, Users, BookOpen, Target } from "lucide-react";
 import type { EducationLevel } from "@/types";
 
@@ -21,22 +22,53 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
         </div>
       )}
 
-      {/* Header coloré */}
-      <div className={`bg-gradient-to-br ${level.color} p-5 text-white relative overflow-hidden`}>
-        <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full" />
-        <div className="relative z-10">
-          <div className="text-3xl mb-2">{level.icon}</div>
-          <h3 className="font-bold text-sm leading-tight mb-1"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-            {level.name}
-          </h3>
-          <p className="text-white/75 text-xs flex items-center gap-1.5">
-            <Users className="w-3 h-3" />
-            {level.ageRange}
-            {isSante && <span className="ml-1 text-white/60">· Bac requis</span>}
-          </p>
+      {/* Header */}
+      {isSante ? (
+        /* Image santé pour l'école professionnelle */
+        <div className="relative h-28 overflow-hidden flex-shrink-0">
+          <Image
+            src="/Santé.jpeg"
+            alt="École Professionnelle de la Santé"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width:640px) 100vw, 300px"
+          />
+          {/* Overlay navy pour lisibilité */}
+          <div className="absolute inset-0 bg-[#0f2557]/65" />
+          <div className="relative z-10 p-4">
+            <div className="text-3xl mb-1.5">{level.icon}</div>
+            <h3
+              className="font-bold text-sm text-white leading-tight mb-1"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              {level.name}
+            </h3>
+            <p className="text-white/75 text-xs flex items-center gap-1.5">
+              <Users className="w-3 h-3" />
+              {level.ageRange}
+              <span className="text-white/55">· Bac requis</span>
+            </p>
+          </div>
         </div>
-      </div>
+      ) : (
+        /* Fond navy uniforme pour les autres niveaux */
+        <div className="bg-[#0f2557] p-5 text-white relative overflow-hidden flex-shrink-0">
+          <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/8 rounded-full" />
+          <div className="relative z-10">
+            <div className="text-3xl mb-2">{level.icon}</div>
+            <h3
+              className="font-bold text-sm leading-tight mb-1"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              {level.name}
+            </h3>
+            <p className="text-white/75 text-xs flex items-center gap-1.5">
+              <Users className="w-3 h-3" />
+              {level.ageRange}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Contenu */}
       <div className="p-5 flex flex-col flex-1">
@@ -50,12 +82,10 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
           </p>
           <div className="flex flex-wrap gap-1.5">
             {level.subjects.slice(0, 4).map((s, i) => (
-              <span key={i}
-                className={`px-2 py-0.5 rounded-full text-[10px] font-medium border ${
-                  isSante
-                    ? "bg-rose-50 border-rose-200 text-rose-700"
-                    : "bg-slate-50 border-slate-200 text-slate-600"
-                }`}>
+              <span
+                key={i}
+                className="px-2 py-0.5 rounded-full text-[10px] font-medium border bg-slate-50 border-slate-200 text-slate-600"
+              >
                 {s}
               </span>
             ))}
@@ -76,7 +106,7 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
           <ul className="space-y-1">
             {level.objectives.slice(0, 3).map((obj, i) => (
               <li key={i} className="flex items-start gap-1.5 text-xs text-slate-600">
-                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1 ${isSante ? "bg-rose-400" : "bg-[#c9a84c]"}`} />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c9a84c] flex-shrink-0 mt-1" />
                 {obj}
               </li>
             ))}
@@ -85,9 +115,7 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
 
         <Link
           href="/enseignements"
-          className={`inline-flex items-center gap-1.5 font-semibold text-xs transition-colors group/link ${
-            isSante ? "text-rose-600 hover:text-rose-800" : "text-[#0f2557] hover:text-[#c9a84c]"
-          }`}
+          className="inline-flex items-center gap-1.5 text-[#0f2557] hover:text-[#c9a84c] font-semibold text-xs transition-colors group/link"
         >
           Voir le détail
           <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
