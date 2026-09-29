@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MapPin, Phone } from "lucide-react";
 
 const navItems = [
   { label: "Accueil",       href: "/" },
@@ -43,14 +43,14 @@ export const Header: React.FC = () => {
       {/* ══════════════════════════════════════
           TOP BAR — fixed, z-50
       ══════════════════════════════════════ */}
-      <div className="hidden lg:flex fixed top-0 left-0 right-0 z-50 bg-[#0f2557] text-white h-8 items-center">
+      <div className="hidden lg:flex fixed top-0 left-0 right-0 bg-[#0f2557] text-white h-8 items-center">
         <div className="max-w-7xl w-full mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-5 text-slate-300 text-[11px]">
             <span className="flex items-center gap-1.5">
-              <span>📍</span> Guéme, Commune de Pita, Guinée
+              <MapPin className="w-4 h-4 text-white"/> Guéme, Commune de Pita, Guinée
             </span>
             <span className="flex items-center gap-1.5">
-              <span>📞</span> +224 620 22 95 84
+              <Phone className="w-4 h-4 text-white"/> +224 620 22 95 84
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px]">
@@ -72,7 +72,7 @@ export const Header: React.FC = () => {
         className={[
           "fixed left-0 right-0 z-40 transition-all duration-300 bg-white border-b border-slate-100",
           scrolled
-            ? "top-0 shadow-[0_2px_20px_rgba(15,37,87,0.10)] py-2"
+            ? "top-0 z-50 shadow-[0_2px_20px_rgba(15,37,87,0.10)] py-2"
             : "lg:top-8 top-0 shadow-sm py-3",
         ].join(" ")}
       >
@@ -147,7 +147,7 @@ export const Header: React.FC = () => {
                 href="/inscriptions"
                 className="hidden lg:inline-flex items-center bg-[#c9a84c] hover:bg-[#b08d35] text-white font-semibold px-4 py-2 rounded-lg text-[13px] transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap"
               >
-                S&apos;inscrire
+                S'inscrire
               </Link>
 
               {/* Hamburger */}
@@ -254,7 +254,7 @@ export const Header: React.FC = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center justify-center w-full bg-[#c9a84c] hover:bg-[#b08d35] text-white font-semibold py-3 rounded-xl transition-colors text-sm"
           >
-            S&apos;inscrire maintenant
+            S'inscrire maintenant
           </Link>
           <Link
             href="/contact"

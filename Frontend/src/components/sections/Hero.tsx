@@ -42,21 +42,16 @@ export const Hero: React.FC = () => {
            style={{ backgroundImage: "radial-gradient(circle, #c9a84c 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
       {/* ── Contenu ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 lg:pt-40 lg:pb-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24 lg:pt-8 lg:pb-32">
         <div className="max-w-3xl">
 
-          {/* Logo */}
-          <div className="mb-8 animate-fade-up" style={{ animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}>
-            <div className="relative w-20 h-20 rounded-2xl overflow-hidden ring-2 ring-[#c9a84c]/40 shadow-2xl">
-              <Image src="/Logo EIB.jpg" alt="Logo E.I.B" fill className="object-cover" sizes="80px" priority />
-            </div>
-          </div>
+          
 
           {/* Label */}
           <div className="mb-5 animate-fade-up" style={{ animationDelay: "0.2s", opacity: 0, animationFillMode: "forwards" }}>
             <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#c9a84c]">
               <span className="w-8 h-px bg-[#c9a84c]" />
-              Complexe Scolaire Privé — Pita, Guinée
+              Complexe Scolaire Privé
               <span className="w-8 h-px bg-[#c9a84c]" />
             </span>
           </div>
@@ -81,14 +76,14 @@ export const Hero: React.FC = () => {
           </p>
 
           {/* Description */}
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-10 max-w-xl animate-fade-up"
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-xl animate-fade-up"
              style={{ animationDelay: "0.5s", opacity: 0, animationFillMode: "forwards" }}>
             Un établissement d&apos;excellence formant les élèves de la maternelle à
             l&apos;École Professionnelle de la Santé, dans un cadre exigeant et bienveillant.
           </p>
 
           {/* CTA */}
-          <div className="flex flex-wrap gap-3 mb-16 animate-fade-up"
+          <div className="flex flex-wrap gap-3 mb-10 animate-fade-up"
                style={{ animationDelay: "0.6s", opacity: 0, animationFillMode: "forwards" }}>
             <Link
               href="/a-propos"
