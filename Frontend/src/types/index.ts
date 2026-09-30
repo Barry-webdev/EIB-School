@@ -50,6 +50,8 @@ export interface GalleryItem {
   alt: string;
   category: string;
   title?: string;
+  fullSrc?: string;
+  blur?: string;
 }
 
 export interface GalleryCategory {

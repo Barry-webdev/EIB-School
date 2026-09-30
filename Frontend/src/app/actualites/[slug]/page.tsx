@@ -2,27 +2,30 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { PortableText } from "@portabletext/react";
 import { Calendar, User, ChevronLeft, Tag, Share2, ArrowRight } from "lucide-react";
-import { newsData, getNewsBySlug, getLatestNews } from "@/data/news";
 import { NewsCard } from "@/components/features/NewsCard";
 import { Badge } from "@/components/ui/Badge";
+import { getAllSlugs, getNewsDetail, getRelatedNews } from "@/sanity/lib/news"; 
+
+export const revalidate = 60; // ← SANITY
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Générer les pages statiques pour chaque actualité
 export async function generateStaticParams() {
-  return newsData.map((news) => ({ slug: news.slug }));
+  const slugs = await getAllSlugs(); // ← SANITY
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const news = getNewsBySlug(slug);
-  if (!news) return { title: "Article introuvable" };
+  const data = await getNewsDetail(slug); // ← SANITY
+  if (!data) return { title: "Article introuvable" };
   return {
-    title: news.title,
-    description: news.excerpt,
+    title: data.news.title,
+    description: data.news.excerpt,
   };
 }
 
@@ -33,32 +36,19 @@ const formatDate = (dateStr: string) =>
     year: "numeric",
   });
 
-const placeholderImages = [
-  "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80",
-  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
-  "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1200&q=80",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80",
-  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
-];
+const fallbackImage =
+  "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80";
 
 export default async function NewsDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const news = getNewsBySlug(slug);
+  const data = await getNewsDetail(slug); // ← SANITY
 
-  if (!news) notFound();
+  if (!data) notFound();
 
-  const newsIndex = newsData.findIndex((n) => n.slug === slug);
-  const imageSrc = placeholderImages[newsIndex % placeholderImages.length];
+  const { news, heroImage, contenu } = data;
+  const imageSrc = heroImage || fallbackImage; // ← SANITY
 
-  const relatedNews = getLatestNews(4).filter((n) => n.slug !== slug).slice(0, 3);
-
-  // Parser le contenu (lignes) 
-  const contentLines = news.content
-    .trim()
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
+  const relatedNews = await getRelatedNews(slug, 3); // ← SANITY
 
   return (
     <div className="min-h-screen bg-white">
@@ -115,9 +105,11 @@ export default async function NewsDetailPage({ params }: PageProps) {
         </h1>
 
         {/* Extrait */}
-        <p className="text-xl text-gray-500 leading-relaxed mb-8 border-l-4 border-amber-500 pl-5">
-          {news.excerpt}
-        </p>
+        {news.excerpt && (
+          <p className="text-xl text-gray-500 leading-relaxed mb-8 border-l-4 border-amber-500 pl-5">
+            {news.excerpt}
+          </p>
+        )}
 
         {/* Image principale */}
         <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden mb-10 shadow-lg">
@@ -131,22 +123,51 @@ export default async function NewsDetailPage({ params }: PageProps) {
           />
         </div>
 
-        {/* Contenu */}
-        <div className="prose prose-lg max-w-none">
-          {contentLines.map((line, i) => {
-            if (line.startsWith("- ")) {
-              return (
-                <li key={i} className="text-gray-700 leading-relaxed mb-2 ml-4 list-disc">
-                  {line.slice(2)}
-                </li>
-              );
-            }
-            return (
-              <p key={i} className="text-gray-700 leading-relaxed mb-4">
-                {line}
-              </p>
-            );
-          })}
+        {/* Contenu (texte riche Sanity) */}
+        <div className="max-w-none">
+          <PortableText
+            value={contenu}
+            components={{
+              block: {
+                normal: ({ children }) => (
+                  <p className="text-gray-700 leading-relaxed mb-4 text-lg">{children}</p>
+                ),
+                h2: ({ children }) => (
+                  <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-3">{children}</h2>
+                ),
+                h3: ({ children }) => (
+                  <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2">{children}</h3>
+                ),
+              },
+              list: {
+                bullet: ({ children }) => (
+                  <ul className="list-disc ml-6 mb-4 space-y-2">{children}</ul>
+                ),
+                number: ({ children }) => (
+                  <ol className="list-decimal ml-6 mb-4 space-y-2">{children}</ol>
+                ),
+              },
+              listItem: {
+                bullet: ({ children }) => (
+                  <li className="text-gray-700 leading-relaxed text-lg">{children}</li>
+                ),
+                number: ({ children }) => (
+                  <li className="text-gray-700 leading-relaxed text-lg">{children}</li>
+                ),
+              },
+              types: {
+                image: ({ value }: any) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={`${value.url}?w=1200&auto=format`}
+                    alt=""
+                    loading="lazy"
+                    className="w-full rounded-xl my-8"
+                  />
+                ),
+              },
+            }}
+          />
         </div>
 
         {/* Partage */}

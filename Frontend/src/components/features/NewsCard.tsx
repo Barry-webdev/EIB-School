@@ -33,7 +33,7 @@ const placeholderImages = [
 ];
 
 export const NewsCard: React.FC<NewsCardProps> = ({ news, featured = false, index = 0 }) => {
-  const imageSrc = placeholderImages[index % placeholderImages.length];
+  const imageSrc = news.image || placeholderImages[index % placeholderImages.length];
   const variant = categoryVariant[news.category] ?? "gray";
 
   return (

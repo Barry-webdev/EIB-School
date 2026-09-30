@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
            style={{ backgroundImage: "radial-gradient(circle, #c9a84c 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
       {/* ── Contenu ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24 lg:pt-8 lg:pb-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-24 lg:pt-8 lg:pb-28">
         <div className="max-w-3xl">
 
           

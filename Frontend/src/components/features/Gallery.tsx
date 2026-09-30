@@ -10,6 +10,7 @@ interface GalleryProps {
   categories?: GalleryCategory[];
   showFilter?: boolean;
   initialCategory?: string;
+  pageSize?: number;
 }
 
 export const Gallery: React.FC<GalleryProps> = ({
@@ -17,14 +18,18 @@ export const Gallery: React.FC<GalleryProps> = ({
   categories = [],
   showFilter = false,
   initialCategory = "all",
+  pageSize,
 }) => {
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [visible, setVisible] = useState(pageSize ?? Infinity);
 
   const filteredItems =
     activeCategory === "all"
       ? items
       : items.filter((item) => item.category === activeCategory);
+
+    const visibleItems = filteredItems.slice(0, visible);
 
   // Gestion clavier pour le lightbox
   const handleKeyDown = useCallback(
@@ -70,7 +75,10 @@ export const Gallery: React.FC<GalleryProps> = ({
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => {
+                setActiveCategory(cat.id);
+                setVisible(pageSize ?? Infinity);
+              }}
               className={[
                 "px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200",
                 activeCategory === cat.id
@@ -87,7 +95,7 @@ export const Gallery: React.FC<GalleryProps> = ({
 
       {/* Grille */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-        {filteredItems.map((item, index) => (
+        {visibleItems.map((item, index) => (
           <button
             key={item.id}
             onClick={() => setLightboxIndex(index)}
@@ -97,6 +105,8 @@ export const Gallery: React.FC<GalleryProps> = ({
             <Image
               src={item.src}
               alt={item.alt}
+              placeholder={item.blur ? "blur" : "empty"}
+              blurDataURL={item.blur}
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-500"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -125,7 +135,16 @@ export const Gallery: React.FC<GalleryProps> = ({
           <p>Aucune image dans cette catégorie.</p>
         </div>
       )}
-
+      {visibleItems.length < filteredItems.length && (
+        <div className="text-center mt-8">
+          <button
+            onClick={() => setVisible((v) => v + (pageSize ?? 12))}
+            className="px-6 py-3 rounded-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold transition-colors"
+          >
+            Voir plus de photos
+          </button>
+        </div>
+      )}
       {/* Lightbox Modal */}
       {lightboxIndex !== null && (
         <div
@@ -166,7 +185,7 @@ export const Gallery: React.FC<GalleryProps> = ({
           <div className="relative w-full h-full flex items-center justify-center px-20 py-16">
             <div className="relative w-full h-full max-w-5xl max-h-full">
               <Image
-                src={filteredItems[lightboxIndex].src}
+                src={filteredItems[lightboxIndex].fullSrc ?? filteredItems[lightboxIndex].src}
                 alt={filteredItems[lightboxIndex].alt}
                 fill
                 className="object-contain"

@@ -11,14 +11,13 @@ interface ActivityCardProps {
 const categoryConfig: Record<ActivityCategory, {
   label: string;
   variant: "navy" | "gold" | "green" | "purple" | "red" | "gray";
-  emoji: string;
 }> = {
-  culturelle:  { label: "Culturelle",     variant: "purple", emoji: "🎭" },
-  sportive:    { label: "Sportive",        variant: "navy",   emoji: "⚽" },
-  sortie:      { label: "Sortie scolaire", variant: "green",  emoji: "🚌" },
-  concours:    { label: "Concours",        variant: "gold",   emoji: "🏆" },
-  cérémonie:   { label: "Cérémonie",       variant: "red",    emoji: "🎓" },
-  événement:   { label: "Événement",       variant: "gray",   emoji: "📅" },
+  culturelle:  { label: "Culturelle",     variant: "purple" },
+  sportive:    { label: "Sportive",        variant: "navy" },
+  sortie:      { label: "Sortie scolaire", variant: "green" },
+  concours:    { label: "Concours",        variant: "gold" },
+  cérémonie:   { label: "Cérémonie",       variant: "red" },
+  événement:   { label: "Événement",       variant: "gray" },
 };
 
 const placeholderImages = [
@@ -37,7 +36,7 @@ const placeholderImages = [
 ];
 
 export const ActivityCard: React.FC<ActivityCardProps> = ({ activity, index = 0 }) => {
-  const imageSrc = placeholderImages[index % placeholderImages.length];
+  const imageSrc = activity.image || placeholderImages[index % placeholderImages.length];
   const config = categoryConfig[activity.category];
 
   return (
@@ -54,9 +53,6 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity, index = 0 
         <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
         <div className="absolute top-3 left-3">
           <Badge variant={config.variant}>{config.label}</Badge>
-        </div>
-        <div className="absolute bottom-3 right-3 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center text-lg shadow-sm">
-          {config.emoji}
         </div>
       </div>
 

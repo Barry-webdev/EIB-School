@@ -12,9 +12,9 @@ import { Gallery }       from "@/components/features/Gallery";
 import { ContactForm }   from "@/components/features/ContactForm";
 import { SectionTitle }  from "@/components/ui/SectionTitle";
 import { educationLevels } from "@/data/education";
-import { getLatestNews }   from "@/data/news";
-import { getFeaturedActivities } from "@/data/activities";
-import { getFeaturedGallery }    from "@/data/gallery";
+import { getLatestNews }   from "@/sanity/lib/news";
+import { getFeaturedActivities } from "@/sanity/lib/activities";
+import { getFeaturedGallery } from "@/sanity/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Accueil",
@@ -22,10 +22,12 @@ export const metadata: Metadata = {
     "Bienvenue au Complexe Scolaire Privé Elhadj Ibrahima Barry (E.I.B) — La rigueur pour l'excellence à Pita, Guinée.",
 };
 
-export default function HomePage() {
-  const latestNews         = getLatestNews(3);
-  const featuredActivities = getFeaturedActivities(6);
-  const featuredGallery    = getFeaturedGallery(8);
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const latestNews         = await getLatestNews(3);
+  const featuredActivities = await getFeaturedActivities(6);
+  const featuredGallery    = await getFeaturedGallery(8);
 
   return (
     <>

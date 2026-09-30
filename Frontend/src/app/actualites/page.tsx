@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { NewsCard } from "@/components/features/NewsCard";
-import { newsData } from "@/data/news";
+import { client } from "@/sanity/lib/client";
+import type { News } from "@/types";
 
 export const metadata: Metadata = {
   title: "Actualités",
@@ -10,15 +11,34 @@ export const metadata: Metadata = {
     "Toutes les actualités de l'EIB : résultats scolaires, événements, partenariats, vie scolaire et bien plus.",
 };
 
-export default function ActualitesPage() {
-  const sortedNews = [...newsData].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+export const revalidate = 60;
+
+export default async function ActualitesPage() {
+  const raw = await client.fetch(`
+    *[_type == "actualite"] | order(date desc){
+      _id, titre, date, resume, categorie, auteur,
+      "slug": slug.current,
+      "imageUrl": image.asset->url
+    }
+  `);
+
+  const sortedNews: News[] = raw.map((n: any) => ({
+    id: n._id,
+    slug: n.slug,
+    title: n.titre,
+    excerpt: n.resume ?? "",
+    content: "",
+    image: n.imageUrl ? `${n.imageUrl}?w=800&auto=format` : "",
+    date: n.date,
+    category: n.categorie ?? "Vie scolaire",
+    author: n.auteur,
+  }));
 
   const featured = sortedNews[0];
   const rest = sortedNews.slice(1);
 
   return (
+    // ... le reste de ton fichier, inchangé
     <div className="min-h-screen">
       <PageHero
         pretitle="Informations & événements"
@@ -58,7 +78,7 @@ export default function ActualitesPage() {
             ))}
           </div>
 
-          {newsData.length === 0 && (
+          {sortedNews.length === 0 && (
             <div className="text-center py-16 text-gray-400">
               <p>Aucune actualité disponible pour le moment.</p>
             </div>

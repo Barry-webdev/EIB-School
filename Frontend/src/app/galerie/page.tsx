@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { Gallery } from "@/components/features/Gallery";
-import { galleryItems, galleryCategories } from "@/data/gallery";
+import { galleryCategories } from "@/data/gallery";
+import { getAllGalleryItems } from "@/sanity/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Galerie photos",
@@ -10,7 +11,10 @@ export const metadata: Metadata = {
     "Découvrez la galerie photos de l'EIB : vie scolaire, sport, culture, événements et infrastructures en images.",
 };
 
-export default function GaleriePage() {
+export const revalidate = 60;
+
+export default async function GaleriePage() {
+  const galleryItems = await getAllGalleryItems();
   return (
     <div className="min-h-screen">
       <PageHero
@@ -43,6 +47,7 @@ export default function GaleriePage() {
             items={galleryItems}
             categories={galleryCategories}
             showFilter
+            pageSize={12}
           />
         </div>
       </section>
