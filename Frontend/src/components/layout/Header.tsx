@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -97,8 +97,7 @@ export const Header: React.FC = () => {
               </div>
               <div className="hidden xl:block">
                 <p
-                  className="text-sm font-bold text-[#0f2557] leading-tight"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  className="text-sm font-bold text-[#0f2557] leading-tight font-display"
                 >
                   E.I.B
                 </p>
@@ -108,8 +107,7 @@ export const Header: React.FC = () => {
               </div>
               {/* Sur lg (pas xl) : juste le sigle */}
               <p
-                className="hidden lg:block xl:hidden text-sm font-bold text-[#0f2557]"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                className="hidden lg:block xl:hidden text-sm font-bold text-[#0f2557] font-display"
               >
                 E.I.B
               </p>
@@ -209,8 +207,7 @@ export const Header: React.FC = () => {
             </div>
             <div>
               <p
-                className="text-sm font-bold text-[#0f2557]"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                className="text-sm font-bold text-[#0f2557] font-display"
               >
                 E.I.B
               </p>
@@ -268,3 +265,5 @@ export const Header: React.FC = () => {
     </>
   );
 };
+
+

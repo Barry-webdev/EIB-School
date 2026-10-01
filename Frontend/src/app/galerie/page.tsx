@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { Gallery } from "@/components/features/Gallery";
 import { galleryCategories } from "@/data/gallery";
 import { getAllGalleryItems } from "@/sanity/lib/gallery";
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Galerie photos",
@@ -54,3 +56,4 @@ export default async function GaleriePage() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Home, Search } from "lucide-react";
@@ -45,14 +45,12 @@ export default function NotFound() {
         </div>
 
         <p
-          className="text-7xl font-bold text-[#c9a84c] mb-4"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="text-7xl font-bold text-[#c9a84c] mb-4 font-display"
         >
           404
         </p>
         <h1
-          className="text-3xl font-bold text-white mb-4"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="text-3xl font-bold text-white mb-4 font-display"
         >
           Page introuvable
         </h1>
@@ -95,3 +93,5 @@ export default function NotFound() {
     </div>
   );
 }
+
+

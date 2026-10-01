@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Image from "next/image";
 
 interface PageHeroProps {
@@ -43,8 +43,7 @@ export const PageHero: React.FC<PageHeroProps> = ({ pretitle, title, subtitle })
         </span>
       )}
       <h1
-        className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight"
-        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+        className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight font-display"
       >
         {title}
       </h1>
@@ -56,3 +55,5 @@ export const PageHero: React.FC<PageHeroProps> = ({ pretitle, title, subtitle })
     </div>
   </section>
 );
+
+

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Users, GraduationCap, Trophy, BookOpen, Star, Clock } from "lucide-react";
 
 const stats = [
@@ -27,8 +27,7 @@ export const StatsSection: React.FC = () => (
               >
                 <Icon className="w-5 h-5" style={{ color: stat.color }} />
               </div>
-              <p className="text-2xl font-bold text-[#0f2557] leading-none mb-1"
-                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              <p className="text-2xl font-bold text-[#0f2557] leading-none mb-1 font-display">
                 {stat.value}
               </p>
               <p className="text-xs font-semibold text-slate-700 leading-tight mb-0.5">{stat.label}</p>
@@ -40,4 +39,6 @@ export const StatsSection: React.FC = () => (
     </div>
   </section>
 );
+
+
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
           <h1
             className="mb-4 font-bold text-white leading-[1.1] animate-fade-up"
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: "'Plus Jakarta Sans', var(--font-jakarta, system-ui, sans-serif)",
               fontSize: "clamp(2.4rem, 6vw, 4.2rem)",
               animationDelay: "0.3s", opacity: 0, animationFillMode: "forwards"
             }}
@@ -137,4 +137,5 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { Card } from "@/components/ui/Card";
@@ -328,8 +328,7 @@ export default function AProposPage() {
                 {/* Infos */}
                 <div className="p-5 text-center">
                   <h3
-                    className="font-bold text-[#0f2557] text-sm leading-tight mb-2"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    className="font-bold text-[#0f2557] text-sm leading-tight mb-2 font-display"
                   >
                     {director.name}
                   </h3>
@@ -486,4 +485,6 @@ export default function AProposPage() {
     </div>
   );
 }
+
+
 

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ChevronRight } from "lucide-react";
@@ -52,8 +52,7 @@ export const Footer: React.FC = () => {
                 <Image src="/Logo EIB.jpg" alt="Logo E.I.B" fill className="object-cover" sizes="48px" />
               </div>
               <div>
-                <p className="text-lg font-bold text-white leading-tight"
-                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>E.I.B</p>
+                <p className="text-lg font-bold text-white leading-tight font-display">E.I.B</p>
                 <p className="text-[10px] text-slate-400 leading-tight max-w-[140px]">
                   Complexe Scolaire Privé Elhadj Ibrahima Barry
                 </p>
@@ -170,3 +169,5 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
+

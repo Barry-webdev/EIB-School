@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, ChevronRight } from "lucide-react";
@@ -47,8 +47,7 @@ export const AboutPreview: React.FC = () => (
           <div className="absolute -bottom-6 -right-4 sm:-right-8 bg-white rounded-2xl shadow-[0_8px_32px_rgba(15,37,87,0.14)] p-5 grid grid-cols-2 gap-4 min-w-[200px]">
             {milestones.map((m, i) => (
               <div key={i} className="text-center">
-                <p className="text-lg font-bold text-[#0f2557] leading-none"
-                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>{m.value}</p>
+                <p className="text-lg font-bold text-[#0f2557] leading-none font-display">{m.value}</p>
                 <p className="text-[10px] text-slate-400 mt-0.5">{m.label}</p>
               </div>
             ))}
@@ -88,4 +87,6 @@ export const AboutPreview: React.FC = () => (
     </div>
   </section>
 );
+
+
 

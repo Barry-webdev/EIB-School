@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { ActivityCard } from "@/components/features/ActivityCard";
 import { getAllActivities } from "@/sanity/lib/activities";
 import type { ActivityCategory } from "@/types";
 import { Music, Palette, Dumbbell, Bus, Trophy, Star, Calendar } from "lucide-react";
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Activités & Vie scolaire",
@@ -179,3 +181,4 @@ export default async function ActivitesPage() {
     </div>
   );
 }
+

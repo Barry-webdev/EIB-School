@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Users, BookOpen, Target } from "lucide-react";
@@ -33,8 +33,7 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
           <div className="absolute inset-0 bg-[#0f2557]/65" />
           <div className="relative z-10 p-4">
             <h3
-              className="font-bold text-sm text-white leading-tight mb-1"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="font-bold text-sm text-white leading-tight mb-1 font-display"
             >
               {level.name}
             </h3>
@@ -54,8 +53,7 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
           <div className="relative z-10">
             <div className="text-3xl mb-2">{level.icon}</div>
             <h3
-              className="font-bold text-sm leading-tight mb-1"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="font-bold text-sm leading-tight mb-1 font-display"
             >
               {level.name}
             </h3>
@@ -121,3 +119,5 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
     </article>
   );
 };
+
+

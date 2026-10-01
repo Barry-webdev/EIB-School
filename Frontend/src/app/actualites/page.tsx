@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { NewsCard } from "@/components/features/NewsCard";
 import { client } from "@/sanity/lib/client";
 import type { News } from "@/types";
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Actualités",
@@ -88,3 +90,4 @@ export default async function ActualitesPage() {
     </div>
   );
 }
+

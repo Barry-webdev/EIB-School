@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, User, ArrowRight } from "lucide-react";
@@ -70,8 +70,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({ news, featured = false, inde
         </div>
 
         <h3
-          className="text-sm font-bold text-[#0f2557] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors line-clamp-2"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="text-sm font-bold text-[#0f2557] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors line-clamp-2 font-display"
         >
           {news.title}
         </h3>
@@ -92,3 +91,5 @@ export const NewsCard: React.FC<NewsCardProps> = ({ news, featured = false, inde
     </article>
   );
 };
+
+

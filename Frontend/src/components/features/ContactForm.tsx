@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
@@ -49,8 +49,7 @@ export const ContactForm: React.FC = () => {
         <div className="w-16 h-16 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-5">
           <CheckCircle className="w-8 h-8 text-emerald-600" />
         </div>
-        <h3 className="text-xl font-bold text-[#0f2557] mb-2"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <h3 className="text-xl font-bold text-[#0f2557] mb-2 font-display">
           Message envoyé !
         </h3>
         <p className="text-slate-500 text-sm mb-6 max-w-xs">
@@ -138,3 +137,5 @@ export const ContactForm: React.FC = () => {
     </form>
   );
 };
+
+

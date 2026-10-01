@@ -42,7 +42,7 @@
 
   /* ── Typographie ── */
   --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 
   /* ── Shadows custom ── */
   --shadow-card:    0 2px 16px 0 rgba(15, 37, 87, 0.08);
@@ -61,15 +61,22 @@
   }
 
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-inter, var(--font-sans));
     @apply text-slate-800 bg-white;
     line-height: 1.65;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--font-display);
+  /* Titres → Plus Jakarta Sans */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-jakarta, var(--font-display));
     line-height: 1.2;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  /* Paragraphes, labels, inputs → Inter */
+  p, span, a, li, td, th, label, input, textarea, select, button {
+    font-family: var(--font-inter, var(--font-sans));
   }
 
   /* Scrollbar subtile */
@@ -85,7 +92,15 @@
   /* Typographie */
   .text-balance { text-wrap: balance; }
 
-  .font-display { font-family: var(--font-display); }
+  /* Utilitaire display — Plus Jakarta Sans pour titres forts */
+  .font-display {
+    font-family: var(--font-jakarta, "Plus Jakarta Sans", system-ui, sans-serif) !important;
+  }
+
+  /* Utilitaire corps — Inter */
+  .font-body {
+    font-family: var(--font-inter, "Inter", system-ui, sans-serif);
+  }
 
   /* Label pretitle */
   .label-pretitle {

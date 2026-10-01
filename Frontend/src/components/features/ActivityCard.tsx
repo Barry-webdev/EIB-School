@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
 import type { Activity, ActivityCategory } from "@/types";
@@ -59,8 +59,7 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity, index = 0 
       {/* Body */}
       <div className="p-5">
         <h3
-          className="font-bold text-[#0f2557] text-sm mb-2 group-hover:text-[#c9a84c] transition-colors"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="font-bold text-[#0f2557] text-sm mb-2 group-hover:text-[#c9a84c] transition-colors font-display"
         >
           {activity.title}
         </h3>
@@ -69,3 +68,5 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity, index = 0 
     </article>
   );
 };
+
+

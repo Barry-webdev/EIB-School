@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
@@ -75,8 +75,7 @@ export default function EnseignementsPage() {
                     <div>
                       <div className="text-5xl mb-4">{level.icon}</div>
                       <h2
-                        className="text-2xl font-bold mb-2"
-                        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                        className="text-2xl font-bold mb-2 font-display"
                       >
                         {level.name}
                       </h2>
@@ -158,8 +157,7 @@ export default function EnseignementsPage() {
                     Formation professionnelle supérieure
                   </span>
                   <h2
-                    className="text-xl font-bold text-[#0f2557]"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    className="text-xl font-bold text-[#0f2557] font-display"
                   >
                     École Professionnelle de la Santé
                   </h2>
@@ -177,8 +175,7 @@ export default function EnseignementsPage() {
                   <div>
                     <div className="text-5xl mb-4">{ecoleSante.icon}</div>
                     <h3
-                      className="text-2xl font-bold mb-2"
-                      style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                      className="text-2xl font-bold mb-2 font-display"
                     >
                       {ecoleSante.name}
                     </h3>
@@ -277,8 +274,7 @@ export default function EnseignementsPage() {
       <section className="py-14 bg-[#0f2557]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-3xl font-bold text-white mb-4 font-display"
           >
             Prêt à rejoindre l&apos;E.I.B ?
           </h2>
@@ -304,3 +300,5 @@ export default function EnseignementsPage() {
     </div>
   );
 }
+
+

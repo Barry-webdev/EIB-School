@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { Hero }          from "@/components/sections/Hero";
@@ -15,6 +15,8 @@ import { educationLevels } from "@/data/education";
 import { getLatestNews }   from "@/sanity/lib/news";
 import { getFeaturedActivities } from "@/sanity/lib/activities";
 import { getFeaturedGallery } from "@/sanity/lib/gallery";
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Accueil",
@@ -141,8 +143,7 @@ export default async function HomePage() {
           <p className="text-white/70 text-xs font-bold tracking-[0.18em] uppercase mb-4">
             Inscriptions ouvertes — Année 2026–2027
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 font-display">
             Rejoignez le Complexe E.I.B
           </h2>
           <p className="text-white/80 text-base mb-8 max-w-xl mx-auto">
@@ -178,8 +179,7 @@ export default async function HomePage() {
             <div className="lg:col-span-2 space-y-5">
               <div className="rounded-2xl p-7 text-white"
                    style={{ background: "linear-gradient(135deg, #071540 0%, #0f2557 100%)" }}>
-                <h3 className="font-bold text-base mb-5"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="font-bold text-base mb-5 font-display">
                   Nos coordonnées
                 </h3>
                 <div className="space-y-4">
@@ -202,8 +202,7 @@ export default async function HomePage() {
               </div>
 
               <div className="bg-[#c9a84c]/8 border border-[#c9a84c]/20 rounded-2xl p-6">
-                <h3 className="font-bold text-[#0f2557] text-sm mb-2"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="font-bold text-[#0f2557] text-sm mb-2 font-display">
                   Inscriptions ouvertes
                 </h3>
                 <p className="text-slate-500 text-xs mb-4 leading-relaxed">
@@ -220,8 +219,7 @@ export default async function HomePage() {
             {/* Formulaire */}
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_24px_rgba(15,37,87,0.06)] p-8">
-                <h3 className="font-bold text-[#0f2557] text-lg mb-6"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="font-bold text-[#0f2557] text-lg mb-6 font-display">
                   Envoyez-nous un message
                 </h3>
                 <ContactForm />
@@ -233,3 +231,6 @@ export default async function HomePage() {
     </>
   );
 }
+
+
+
