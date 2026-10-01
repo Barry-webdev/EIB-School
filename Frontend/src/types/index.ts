@@ -39,8 +39,8 @@ export interface EducationLevel {
   description: string;
   subjects: string[];
   objectives: string[];
-  ageRange: string;
-  icon: string;
+  ageRange?: string;
+  icon?: string;
   color: string;
 }
 

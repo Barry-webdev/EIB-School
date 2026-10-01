@@ -319,7 +319,7 @@ export default function AProposPage() {
                         src={
                           director.image
                         }
-                        alt={director.dep}
+                        alt={director.dept}
                         fill
                         className="object-cover object-center"
                         sizes="(max-width:640px) 100vw, 300px"
