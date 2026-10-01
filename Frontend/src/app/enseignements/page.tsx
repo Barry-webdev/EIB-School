@@ -43,11 +43,6 @@ export default function EnseignementsPage() {
                     <p className="font-bold text-xs">{level.shortName}</p>
                     <p className="text-white/70 text-xs">{level.ageRange}</p>
                   </div>
-                  {level.id === "ecole-sante" && (
-                    <span className="absolute -top-2 -right-2 bg-[#c9a84c] text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
-                      Nouveau
-                    </span>
-                  )}
                 </div>
                 {i < educationLevels.length - 1 && (
                   <ChevronRight className="w-5 h-5 text-slate-300 mx-2 flex-shrink-0 rotate-90 sm:rotate-0" />
@@ -86,7 +81,9 @@ export default function EnseignementsPage() {
                         {level.name}
                       </h2>
                       <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
-                        <Users className="w-4 h-4" />
+                        {level.ageRange && (
+                          <Users className="w-4 h-4" />
+                        )}
                         <span>{level.ageRange}</span>
                       </div>
                       <p className="text-slate-300 text-sm leading-relaxed">

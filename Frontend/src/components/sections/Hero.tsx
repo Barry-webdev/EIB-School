@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ChevronRight, BookOpen, Users, Award, GraduationCap, ArrowDown } from "lucide-react";
 
 const stats = [
-  { icon: Users,        value: "850+",  label: "Élèves" },
+  { icon: Users,        value: "1000+",  label: "Élèves" },
   { icon: BookOpen,     value: "60+",   label: "Enseignants" },
   { icon: Award,        value: "96%",   label: "Réussite" },
   { icon: GraduationCap, value: "12 ans", label: "Expérience" },
@@ -72,14 +72,14 @@ export const Hero: React.FC = () => {
           {/* Slogan */}
           <p className="text-white/70 text-lg sm:text-xl font-light italic mb-5 animate-fade-up"
              style={{ animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}>
-            &ldquo; La rigueur pour l&apos;excellence &rdquo;
+            &ldquo; La rigueur pour l'excellence &rdquo;
           </p>
 
           {/* Description */}
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-xl animate-fade-up"
              style={{ animationDelay: "0.5s", opacity: 0, animationFillMode: "forwards" }}>
-            Un établissement d&apos;excellence formant les élèves de la maternelle à
-            l&apos;École Professionnelle de la Santé, dans un cadre exigeant et bienveillant.
+            Un établissement d'excellence formant les élèves de la maternelle à
+            l'École Professionnelle de la Santé, dans un cadre exigeant et bienveillant.
           </p>
 
           {/* CTA */}
@@ -90,13 +90,13 @@ export const Hero: React.FC = () => {
               className="inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#b08d35] text-white font-semibold px-7 py-3.5 rounded-xl text-sm transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               <BookOpen className="w-4 h-4" />
-              Découvrir l&apos;établissement
+              Découvrir l'établissement
             </Link>
             <Link
               href="/inscriptions"
               className="inline-flex items-center gap-2 bg-white text-[#0f2557] hover:bg-slate-50 font-semibold px-7 py-3.5 rounded-xl text-sm transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              S&apos;inscrire
+              S'inscrire
               <ChevronRight className="w-4 h-4" />
             </Link>
             <Link

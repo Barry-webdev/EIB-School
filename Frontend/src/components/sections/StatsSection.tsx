@@ -2,12 +2,12 @@ import React from "react";
 import { Users, GraduationCap, Trophy, BookOpen, Star, Clock } from "lucide-react";
 
 const stats = [
-  { icon: Users,        value: "850+",  label: "Élèves inscrits",      sub: "Par année scolaire",      color: "#0f2557" },
+  { icon: Users,        value: "1000+",  label: "Élèves inscrits",      sub: "Par année scolaire",      color: "#0f2557" },
   { icon: GraduationCap, value: "60+",  label: "Enseignants",           sub: "Qualifiés et dévoués",    color: "#c9a84c" },
   { icon: Trophy,       value: "96%",   label: "Taux de réussite",      sub: "Aux examens nationaux",   color: "#059669" },
   { icon: BookOpen,     value: "5",     label: "Niveaux d'enseignement",sub: "De la maternelle à la Santé", color: "#7c3aed" },
   { icon: Star,         value: "12 ans",label: "D'expérience",          sub: "Au service de l'éducation", color: "#c9a84c" },
-  { icon: Clock,        value: "12+",   label: "Activités parascolaires",sub: "Sport, arts, sciences",  color: "#0284c7" },
+  { icon: Clock,        value: "12+",   label: "Activités parascolaires",sub: "Sport, arts, sciences, ...",  color: "#0284c7" },
 ];
 
 export const StatsSection: React.FC = () => (

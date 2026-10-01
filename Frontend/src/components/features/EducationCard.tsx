@@ -12,15 +12,7 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
   const isSante = level.id === "ecole-sante";
 
   return (
-    <article className="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-[0_8px_32px_rgba(15,37,87,0.12)] hover:-translate-y-1.5">
-      {/* Badge Nouveau */}
-      {isSante && (
-        <div className="absolute top-3 right-3 z-10">
-          <span className="bg-[#c9a84c] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
-            Nouveau
-          </span>
-        </div>
-      )}
+    <article className="group relative bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-[0_8px_32px_rgba(15,37,87,0.12)] hover:-translate-y-1.5">     
 
       {/* Header */}
       {(isSante || level.id === "lycee" || level.id === "maternelle" || level.id === "college" || level.id === "primaire") ? (
@@ -47,7 +39,9 @@ export const EducationCard: React.FC<EducationCardProps> = ({ level }) => {
               {level.name}
             </h3>
             <p className="text-white/75 text-xs flex items-center gap-1.5">
-              <Users className="w-3 h-3" />
+              {level.ageRange && (
+                <Users className="w-4 h-4" />
+              )}              
               {level.ageRange}
               {isSante && <span className="text-white/55">· Bac requis</span>}
             </p>

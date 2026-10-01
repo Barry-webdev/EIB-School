@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { PageHero } from "@/components/ui/PageHero";
 import { Card } from "@/components/ui/Card";
+import Image from "next/image";
 import {
   Target,
   Eye,
@@ -12,7 +13,9 @@ import {
   BookOpen,
   Award,
   CheckCircle,
+  Phone,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa"
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -76,46 +79,54 @@ const objectives = [
   "Promouvoir l'égalité des chances dans l'accès à l'éducation",
 ];
 
-const timeline = [
-  {
-    year: "2014",
-    title: "Fondation de l'EIB",
-    description:
-      "L'Établissement d'Instruction de Base ouvre ses portes avec 3 classes et 85 élèves. La vision : offrir une éducation de qualité accessible.",
-  },
-  {
-    year: "2015",
-    title: "Ouverture du Collège",
-    description:
-      "Devant le succès du primaire, l'EIB crée sa section collège pour accompagner ses élèves dans la continuité de leur parcours.",
-  },
-  {
-    year: "2016",
-    title: "Nouveaux locaux",
-    description:
-      "Construction d'un nouveau bâtiment moderne avec laboratoire scientifique, salle informatique et bibliothèque.",
-  },
-  {
-    year: "2017",
-    title: "Ouverture du Lycée",
-    description:
-      "L'EIB devient un établissement complet maternelle-lycée avec l'ouverture de ses classes de seconde, première et terminale.",
-  },
-  {
-    year: "2025",
-    title: "12 ans d'excellence",
-    description:
-      "Célébration des 12 ans avec un taux de réussite record de 98% au baccalauréat et plus de 800 élèves inscrits.",
-  },
-  {
-    year: "2026",
-    title: "Aujourd'hui",
-    description:
-      "L'EIB continue d'innover avec de nouveaux partenariats internationaux, des équipements de pointe, une pédagogie résolument tournée vers l'avenir — et l'ouverture de l'École Professionnelle de la Santé.",
-  },
-];
+  const timeline = [
+    {
+      year: "2013 - 2014",
+      title: "Fondation et ouverture de l'E.I.B",
+      description:
+        "L'Établissement d'Instruction de Base (E.I.B) ouvre officiellement ses portes avec 6 classes et 85 élèves. Dès sa création, l'ambition est claire : offrir une éducation de qualité, fondée sur la rigueur, l'excellence et l'épanouissement des apprenants.",
+    },
+    {
+      year: "2017",
+      title: "Ouverture du Collège",
+      description:
+        "Face à la croissance constante des effectifs et à la confiance accordée par les familles, l'E.I.B élargit son offre de formation avec l'ouverture de sa section collège afin d'assurer la continuité du parcours scolaire de ses élèves.",
+    },
+    {
+      year: "2018",
+      title: "Création de l'École Professionnelle de la Santé",
+      description:
+        "L'E.I.B franchit une nouvelle étape dans son développement avec l'ouverture de l'École Professionnelle de la Santé, contribuant à la formation de futurs professionnels qualifiés dans le domaine sanitaire et médical.",
+    },
+    {
+      year: "2021",
+      title: "Ouverture du Lycée",
+      description:
+        "L'établissement poursuit son expansion avec l'ouverture du lycée et le renforcement de ses infrastructures pédagogiques, notamment des salles spécialisées, une bibliothèque et des équipements adaptés aux besoins de l'enseignement secondaire.",
+    },
+    {
+      year: "2023",
+      title: "Première promotion au Baccalauréat",
+      description:
+        "L'E.I.B présente sa première cohorte d'élèves au Baccalauréat. Cette promotion historique enregistre un excellent taux d'admission, confirmant la qualité de l'enseignement et l'engagement de l'équipe pédagogique.",
+    },
+    {
+      year: "2025",
+      title: "12 ans d'excellence éducative",
+      description:
+        "Après plus d'une décennie d'engagement au service de l'éducation, l'E.I.B s'impose comme une référence académique avec plusieurs centaines d'élèves formés et de nombreux succès enregistrés aux examens nationaux.",
+    },
+    {
+      year: "2026",
+      title: "Ouverture de l'E.I.B 2 à Dow Saré",
+      description:
+        "Afin de répondre à une demande croissante et de rapprocher davantage son offre éducative des familles, l'E.I.B inaugure un second établissement à Dow Saré. Cette nouvelle structure demeure rattachée au complexe principal et partage les mêmes valeurs d'excellence, de discipline et d'innovation pédagogique.",
+    },
+  ];
 
 export default function AProposPage() {
+  let isSante = "ecole-sante";
+
   return (
     <div className="min-h-screen">
       <PageHero
@@ -137,24 +148,71 @@ export default function AProposPage() {
               />
               <div className="mt-8 space-y-4">
                 <p className="text-gray-600 leading-relaxed">
-                  Fondé en 2014 par une équipe de pédagogues passionnés,
-                  l&apos;Établissement d&apos;Instruction de Base s&apos;est
-                  construit sur une ambition claire : offrir une éducation
-                  d&apos;excellence accessible, dans un cadre de vie scolaire
-                  épanouissant.
+                  Fondé en 2013 et officiellement ouvert en 2014,
+                  l'Établissement d'Instruction de Base (E.I.B) est né
+                  d'une volonté forte : offrir aux enfants guinéens une
+                  éducation de qualité fondée sur la discipline, l'excellence
+                  académique et les valeurs citoyennes.
                 </p>
+
                 <p className="text-gray-600 leading-relaxed">
-                  En douze ans, nous avons accueilli des milliers
-                  d&apos;élèves, construit une équipe pédagogique d&apos;exception
-                  et développé des infrastructures modernes. Notre taux de
-                  réussite constant témoigne de l&apos;engagement quotidien de
-                  nos équipes.
+                  Au fil des années, l'établissement a connu une croissance
+                  remarquable avec l'ouverture du collège en 2017, de
+                  l'École Professionnelle de la Santé en 2018 puis du lycée
+                  en 2021. Ces différentes étapes ont permis à l'E.I.B de
+                  devenir un complexe éducatif complet capable d'accompagner
+                  ses apprenants à chaque étape de leur formation.
                 </p>
+
                 <p className="text-gray-600 leading-relaxed">
-                  Aujourd&apos;hui, l&apos;EIB est un établissement complet
-                  accueillant plus de 850 élèves, de la maternelle au lycée,
-                  dans un environnement sécurisé et stimulant.
+                  En 2023, l'établissement a franchi un cap historique avec sa
+                  première promotion au baccalauréat, enregistrant un excellent
+                  taux d'admission qui confirme la qualité de son encadrement
+                  pédagogique et l'engagement de ses enseignants.
                 </p>
+
+                <p className="text-gray-600 leading-relaxed">
+                  Aujourd'hui, l'E.I.B accueille plus de 1000 élèves, encadrés
+                  par une équipe pédagogique qualifiée dans un environnement
+                  moderne, sécurisé et propice à la réussite. En 2026,
+                  l'établissement poursuit son expansion avec l'ouverture de
+                  l'E.I.B 2 à Dow Saré, un second site rattaché au complexe
+                  principal et conçu pour rapprocher davantage l'excellence
+                  éducative des familles.
+                </p>
+                <div className="grid grid-cols-2 gap-4 mt-8">
+                  <div>
+                    <p className="text-3xl font-bold text-blue-700">12+</p>
+                    <p className="text-sm text-gray-500">Années d'expérience</p>
+                  </div>
+
+                  <div>
+                    <p className="text-3xl font-bold text-blue-700">1000+</p>
+                    <p className="text-sm text-gray-500">Élèves formés</p>
+                  </div>
+
+                  <div>
+                    <p className="text-3xl font-bold text-blue-700">4</p>
+                    <p className="text-sm text-gray-500">Cycles de formation</p>
+                  </div>
+
+                  <div>
+                    <p className="text-3xl font-bold text-blue-700">2</p>
+                    <p className="text-sm text-gray-500">Campus E.I.B</p>
+                  </div>
+                </div>
+                <div className="mt-10 bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-2xl p-6">
+  <h3 className="text-2xl font-bold mb-2">
+    Une référence éducative en Guinée
+  </h3>
+
+  <p className="text-blue-100 leading-relaxed">
+    Grâce à la confiance des parents, à l'engagement de nos
+    enseignants et aux performances de nos élèves, l'E.I.B
+    poursuit sa mission d'excellence éducative tout en préparant
+    les générations futures à relever les défis de demain.
+  </p>
+</div>
               </div>
             </div>
 
@@ -166,7 +224,7 @@ export default function AProposPage() {
                   {timeline.map((event, i) => (
                     <div key={i} className="relative flex gap-6">
                       <div className="flex-shrink-0 w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center text-xs font-bold z-10">
-                        {event.year.slice(2)}
+                        {event.year === "2013 - 2014" ? "13-14" : event.year.slice(2)}
                       </div>
                       <div className="pt-2 pb-4">
                         <div className="flex items-center gap-3 mb-1">
@@ -205,10 +263,10 @@ export default function AProposPage() {
               {
                 name: "M. Sâa Alexis Dembadouno",
                 role: "Directeur",
+                image: "/directMarternelle.jpeg",
                 dept: "École Maternelle",
                 phone: "+224 613 24 13 37",
                 tel: "+224613241337",
-                icon: "🌱",
                 color: "from-emerald-400 to-teal-500",
                 bg: "bg-emerald-50",
                 border: "border-emerald-200",
@@ -217,10 +275,10 @@ export default function AProposPage() {
               {
                 name: "M. Tely Baïlo Diallo",
                 role: "Directeur",
+                image: "/directeurPrimaire.jpeg",
                 dept: "École Primaire",
                 phone: "+224 620 47 13 92",
                 tel: "+224620471392",
-                icon: "📚",
                 color: "from-blue-400 to-indigo-500",
                 bg: "bg-blue-50",
                 border: "border-blue-200",
@@ -229,10 +287,10 @@ export default function AProposPage() {
               {
                 name: "M. Mamadou Baïla Barry",
                 role: "Directeur",
+                image: "/directeurLycee.jpeg",
                 dept: "Secondaire (Collège & Lycée)",
                 phone: "+224 628 32 88 46",
                 tel: "+224628328846",
-                icon: "🎓",
                 color: "from-violet-400 to-purple-600",
                 bg: "bg-violet-50",
                 border: "border-violet-200",
@@ -241,10 +299,10 @@ export default function AProposPage() {
               {
                 name: "Dr Oumar Baïlo Kanté",
                 role: "Directeur",
+                image: "/directeurSante.jpeg",
                 dept: "École Professionnelle de la Santé",
                 phone: "+224 628 40 42 70",
                 tel: "+224628404270",
-                icon: "🏥",
                 color: "from-rose-400 to-red-600",
                 bg: "bg-rose-50",
                 border: "border-rose-200",
@@ -256,12 +314,17 @@ export default function AProposPage() {
                 className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
               >
                 {/* Header coloré */}
-                <div className={`bg-gradient-to-br ${director.color} p-6 text-white text-center`}>
-                  <div className="text-4xl mb-3">{director.icon}</div>
-                  <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">
-                    {director.role}
-                  </p>
-                </div>
+                    <div className="relative h-72 overflow-hidden flex-shrink-0">
+                      <Image
+                        src={
+                          director.image
+                        }
+                        alt={director.dep}
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width:640px) 100vw, 300px"
+                      />
+                  </div>
                 {/* Infos */}
                 <div className="p-5 text-center">
                   <h3
@@ -270,7 +333,7 @@ export default function AProposPage() {
                   >
                     {director.name}
                   </h3>
-                  <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${director.bg} ${director.border} ${director.text} mb-4`}>
+                  <span className={`inline-block text-xs font-semibold px-2 py-1 rounded-full border ${director.bg} ${director.border} ${director.text} mb-4`}>
                     {director.dept}
                   </span>
                   {/* Contact */}
@@ -279,7 +342,9 @@ export default function AProposPage() {
                       href={`tel:${director.tel}`}
                       className="flex items-center justify-center gap-2 text-xs text-slate-600 hover:text-[#0f2557] transition-colors"
                     >
-                      <span className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-[10px]">📞</span>
+                      <span className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-[10px]">
+                        <Phone className="w-4 h-4"/>
+                      </span>
                       {director.phone}
                     </a>
                     <a
@@ -288,7 +353,9 @@ export default function AProposPage() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 text-xs text-emerald-600 hover:text-emerald-700 transition-colors"
                     >
-                      <span className="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center text-[10px]">💬</span>
+                      <span className="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center text-[10px]">
+                        <FaWhatsapp className="w-6 h-6"/>
+                      </span>
                       WhatsApp
                     </a>
                   </div>
@@ -313,8 +380,8 @@ export default function AProposPage() {
               <Eye className="w-10 h-10 text-amber-400 mb-4" />
               <h3 className="text-2xl font-bold mb-4">Notre vision</h3>
               <p className="text-blue-200 leading-relaxed">
-                Être l&apos;établissement scolaire de référence en Guinée,
-                reconnu pour l&apos;excellence de son enseignement, la qualité
+                Être l'établissement scolaire de référence en Guinée,
+                reconnu pour l'excellence de son enseignement, la qualité
                 de son encadrement pédagogique et sa capacité à former des
                 citoyens compétents, intègres et ouverts sur le monde.
               </p>
@@ -399,7 +466,7 @@ export default function AProposPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
-              { icon: Users, value: "850+", label: "Élèves", color: "text-blue-700" },
+              { icon: Users, value: "1000+", label: "Élèves", color: "text-blue-700" },
               { icon: Award, value: "12 ans", label: "D'expérience", color: "text-amber-600" },
               { icon: BookOpen, value: "60+", label: "Enseignants", color: "text-emerald-600" },
               { icon: Star, value: "96%", label: "Taux de réussite", color: "text-purple-600" },

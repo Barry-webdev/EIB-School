@@ -14,7 +14,7 @@ const highlights = [
 ];
 
 const milestones = [
-  { value: "850+",   label: "Élèves" },
+  { value: "1000+",   label: "Élèves" },
   { value: "96%",    label: "Réussite" },
   { value: "60+",    label: "Enseignants" },
   { value: "12 ans", label: "Expertise" },
@@ -63,7 +63,7 @@ export const AboutPreview: React.FC = () => (
           <SectionTitle
             pretitle="À propos de nous"
             title="Un complexe scolaire au service de l'excellence"
-            subtitle="Depuis plus de 12 ans, le Complexe E.I.B forme des générations d'élèves à Pita, dans un environnement pédagogique rigoureux et stimulant."
+            subtitle="Fondé en 2013 et ouvert en 2014, le Complexe E.I.B forme des générations d'élèves à Pita, dans un environnement pédagogique rigoureux et stimulant."
             align="left"
           />
 
