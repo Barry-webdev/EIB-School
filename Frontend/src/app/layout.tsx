@@ -37,6 +37,17 @@ export const metadata: Metadata = {
     description: "La rigueur pour l'excellence — Pita, Guinée.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/Logo EIB.jpg",
+    shortcut: "/Logo EIB.jpg",
+    apple: "/Logo EIB.jpg",
+  },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "E.I.B",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

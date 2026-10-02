@@ -1,0 +1,24 @@
+{
+  "name": "E.I.B — Complexe Scolaire Privé Elhadj Ibrahima Barry",
+  "short_name": "E.I.B",
+  "description": "La rigueur pour l'excellence — Pita, Guinée",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f2557",
+  "theme_color": "#0f2557",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/Logo EIB.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo EIB.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
