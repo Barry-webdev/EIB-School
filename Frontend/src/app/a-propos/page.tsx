@@ -198,7 +198,7 @@ export default function AProposPage() {
 
                   <div>
                     <p className="text-3xl font-bold text-blue-700">2</p>
-                    <p className="text-sm text-gray-500">Campus E.I.B</p>
+                    <p className="text-sm text-gray-500">Établissements E.I.B</p>
                   </div>
                 </div>
                 <div className="mt-10 bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-2xl p-6">
