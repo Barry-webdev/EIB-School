@@ -13,7 +13,7 @@ export const contactInfo: ContactInfo = {
   socialLinks: [
     {
       platform: "Facebook",
-      url: "https://fb.me/gspeib",
+      url: "https://www.facebook.com/share/1MpBHyQeYE/?mibextid=wwXIfr",
       icon: "facebook",
     },
     {

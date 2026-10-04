@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px]">
-            <a href="https://www.facebook.com/profile.php?id=100085294342781" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.facebook.com/share/1MpBHyQeYE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
                className="text-slate-300 hover:text-[#c9a84c] transition-colors">Facebook</a>
             <span className="text-slate-600">|</span>
             <a href="https://wa.me/224620229584" target="_blank" rel="noopener noreferrer"

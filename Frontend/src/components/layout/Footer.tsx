@@ -21,7 +21,7 @@ const quickLinks = [
 ];
 
 const social = [
-  { platform: "Facebook", href: "https://fb.me/gspeib",         Icon: FacebookIcon,   bg: "hover:bg-blue-600" },
+  { platform: "Facebook", href: "https://www.facebook.com/share/1MpBHyQeYE/?mibextid=wwXIfr", Icon: FacebookIcon, bg: "hover:bg-blue-600" },
   { platform: "WhatsApp", href: "https://wa.me/224620229584",   Icon: MessageCircle,  bg: "hover:bg-green-600" },
 ];
 
