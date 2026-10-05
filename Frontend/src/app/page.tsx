@@ -192,7 +192,7 @@ export default async function HomePage() {
                   {[
                     { Icon: MapPin,        text: "Guéme, Commune de Pita\nRépublique de Guinée", href: "#",                                    color: "bg-[#c9a84c]" },
                     { Icon: Phone,         text: "+224 620 22 95 84\n+224 620 47 13 92",          href: "tel:+224620229584",                     color: "bg-[#c9a84c]" },
-                    { Icon: WhatsAppIcon, text: "WhatsApp : +224 620 22 95 84", href: "https://wa.me/224620229584", color: "bg-green-600" },
+                    { Icon: WhatsAppIcon, text: "WhatsApp : +224 620 22 95 84", href: "https://wa.me/224620229584", color: "bg-[#c9a84c]" },
                     { Icon: Mail,          text: "gspeib224@gmail.com",                           href: "mailto:gspeib224@gmail.com",            color: "bg-[#c9a84c]" },
                   ].map(({ Icon, text, href, color }, i) => (
                     <a key={i} href={href} className="flex items-start gap-3.5 group">
