@@ -26,9 +26,16 @@ export const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    
     setStatus("loading");
     setErrorMessage("");
     try {
+      if (!formData.name || !formData.email || !formData.message) {
+        setStatus("error")
+        setErrorMessage("Veuillez remplir tous les champs obligatoires.");
+        return;
+      }
       const result = await submitContactForm(formData);
       if (result.success) {
         setStatus("success");
