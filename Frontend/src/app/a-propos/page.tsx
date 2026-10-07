@@ -254,114 +254,116 @@ export default function AProposPage() {
           <SectionTitle
             pretitle="Notre équipe"
             title="L'équipe de direction"
-            subtitle="Quatre directeurs expérimentés au service de l'excellence pédagogique de l'E.I.B."
+            subtitle="Une équipe expérimentée et dévouée au service de l'excellence pédagogique de l'E.I.B."
             align="center"
             className="mb-12"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                name: "M. Sâa Alexis Dembadouno",
-                role: "Directeur",
-                image: "/directMarternelle.jpeg",
-                dept: "École Maternelle",
-                phone: "+224 613 24 13 37",
-                tel: "+224613241337",
-                color: "from-emerald-400 to-teal-500",
-                bg: "bg-emerald-50",
-                border: "border-emerald-200",
-                text: "text-emerald-700",
-              },
-              {
-                name: "M. Tely Baïlo Diallo",
-                role: "Directeur",
-                image: "/directeurPrimaire.jpeg",
-                dept: "École Primaire",
-                phone: "+224 620 47 13 92",
-                tel: "+224620471392",
-                color: "from-blue-400 to-indigo-500",
-                bg: "bg-blue-50",
-                border: "border-blue-200",
-                text: "text-blue-700",
-              },
-              {
-                name: "M. Mamadou Baïla Barry",
-                role: "Directeur",
-                image: "/directeurLycee.jpeg",
-                dept: "Secondaire (Collège & Lycée)",
-                phone: "+224 628 32 88 46",
-                tel: "+224628328846",
-                color: "from-violet-400 to-purple-600",
-                bg: "bg-violet-50",
-                border: "border-violet-200",
-                text: "text-violet-700",
-              },
-              {
-                name: "Dr Oumar Baïlo Kanté",
-                role: "Directeur",
-                image: "/directeurSante.jpeg",
-                dept: "École Professionnelle de la Santé",
-                phone: "+224 628 40 42 70",
-                tel: "+224628404270",
-                color: "from-rose-400 to-red-600",
-                bg: "bg-rose-50",
-                border: "border-rose-200",
-                text: "text-rose-700",
-              },
-            ].map((director, i) => (
+
+          {/* Données complètes de l'équipe */}
+          {(() => {
+            const team = [
+              // Ligne 1 — Fondateur seul
+              [{
+                name: "M. Mamadou Oury Barry",
+                role: "Fondateur",
+                dept: "Complexe Scolaire Privé E.I.B",
+                phone: "+224 628 57 03 30",
+                tel: "+224628570330",
+                icon: "👑",
+                bg: "bg-[#c9a84c]/10",
+                border: "border-[#c9a84c]/30",
+                text: "text-[#8f6f22]",
+              }],
+              // Ligne 2 — Directeur études + Comptable
+              [
+                {
+                  name: "M. Elhadj Ibrahima Barry",
+                  role: "Directeur des études",
+                  dept: "École Professionnelle de la Santé",
+                  phone: "+224 620 22 95 84",
+                  tel: "+224620229584",
+                  icon: "🩺",
+                  bg: "bg-rose-50",
+                  border: "border-rose-200",
+                  text: "text-rose-700",
+                },
+                {
+                  name: "M. Amadou Diao Barry",
+                  role: "Comptable",
+                  dept: "Comptabilité",
+                  phone: "+224 629 33 95 61",
+                  tel: "+224629339561",
+                  icon: "💼",
+                  bg: "bg-amber-50",
+                  border: "border-amber-200",
+                  text: "text-amber-700",
+                },
+              ],
+              // Ligne 3 — 4 Directeurs
+              [
+                { name: "M. Sâa Alexis Dembadouno", role: "Directeur", dept: "École Maternelle",             phone: "+224 613 24 13 37", tel: "+224613241337", image: "/directMarternelle.jpeg", icon: "🌱", bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700" },
+                { name: "M. Tely Baïlo Diallo",      role: "Directeur", dept: "École Primaire",               phone: "+224 620 47 13 92", tel: "+224620471392", image: "/directeurPrimaire.jpeg",  icon: "📚", bg: "bg-blue-50",    border: "border-blue-200",    text: "text-blue-700" },
+                { name: "M. Mamadou Baïla Barry",    role: "Directeur", dept: "Secondaire (Collège & Lycée)", phone: "+224 628 32 88 46", tel: "+224628328846", image: "/directeurLycee.jpeg",    icon: "🎓", bg: "bg-violet-50",  border: "border-violet-200",  text: "text-violet-700" },
+                { name: "Dr Oumar Baïlo Kanté",      role: "Directeur", dept: "École Prof. de la Santé",      phone: "+224 628 40 42 70", tel: "+224628404270", image: "/directeurSante.jpeg",    icon: "🏥", bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700" },
+              ],
+            ];
+
+            return team.map((row, rowIdx) => (
               <div
-                key={i}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+                key={rowIdx}
+                className={[
+                  "grid gap-6 mb-6",
+                  row.length === 1 ? "grid-cols-1 max-w-sm mx-auto" :
+                  row.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" :
+                  "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
+                ].join(" ")}
               >
-                {/* Header coloré */}
-                    <div className="relative h-72 overflow-hidden flex-shrink-0">
-                      <Image
-                        src={
-                          director.image
-                        }
-                        alt={director.dept}
-                        fill
-                        className="object-cover object-center"
-                        sizes="(max-width:640px) 100vw, 300px"
-                      />
-                  </div>
-                {/* Infos */}
-                <div className="p-5 text-center">
-                  <h3
-                    className="font-bold text-[#0f2557] text-sm leading-tight mb-2 font-display"
-                  >
-                    {director.name}
-                  </h3>
-                  <span className={`inline-block text-xs font-semibold px-2 py-1 rounded-full border ${director.bg} ${director.border} ${director.text} mb-4`}>
-                    {director.dept}
-                  </span>
-                  {/* Contact */}
-                  <div className="flex flex-col gap-2 mt-1">
-                    <a
-                      href={`tel:${director.tel}`}
-                      className="flex items-center justify-center gap-2 text-xs text-slate-600 hover:text-[#0f2557] transition-colors"
-                    >
-                      <span className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-[10px]">
-                        <Phone className="w-4 h-4"/>
+                {row.map((member: any, i: number) => (
+                  <div key={i} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    {/* Header — image si dispo, sinon emoji sur fond navy */}
+                    {"image" in member && member.image ? (
+                      <div className="relative h-48 overflow-hidden flex-shrink-0">
+                        <Image src={member.image} alt={member.dept} fill
+                          className="object-cover object-center" sizes="(max-width:640px) 100vw, 300px" />
+                      </div>
+                    ) : (
+                      <div className="bg-[#0f2557] h-28 flex items-center justify-center flex-shrink-0 relative overflow-hidden">
+                        <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-[#c9a84c] to-transparent" />
+                        <span className="text-5xl relative z-10">{member.icon}</span>
+                      </div>
+                    )}
+                    {/* Infos */}
+                    <div className="p-5 text-center flex flex-col flex-1">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{member.role}</p>
+                      <h3 className="font-bold text-[#0f2557] text-sm leading-tight mb-2 font-display">
+                        {member.name}
+                      </h3>
+                      <span className={`inline-block text-xs font-semibold px-2 py-1 rounded-full border ${member.bg} ${member.border} ${member.text} mb-4`}>
+                        {member.dept}
                       </span>
-                      {director.phone}
-                    </a>
-                    <a
-                      href={`https://wa.me/${director.tel.replace("+", "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 text-xs text-emerald-600 hover:text-emerald-700 transition-colors"
-                    >
-                      <span className="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center text-[10px]">
-                        <FaWhatsapp className="w-6 h-6"/>
-                      </span>
-                      WhatsApp
-                    </a>
+                      <div className="flex flex-col gap-2 mt-auto">
+                        <a href={`tel:${member.tel}`}
+                          className="flex items-center justify-center gap-2 text-xs text-slate-600 hover:text-[#0f2557] transition-colors">
+                          <span className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center">
+                            <Phone className="w-3.5 h-3.5" />
+                          </span>
+                          {member.phone}
+                        </a>
+                        <a href={`https://wa.me/${member.tel.replace("+", "")}`} target="_blank" rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 text-xs text-emerald-600 hover:text-emerald-700 transition-colors">
+                          <span className="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center">
+                            <FaWhatsapp className="w-4 h-4" />
+                          </span>
+                          WhatsApp
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            ));
+          })()}
+
         </div>
       </section>
 
