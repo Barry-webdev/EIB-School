@@ -370,8 +370,8 @@ export default function InscriptionsPage() {
           {/* Filières disponibles */}
           <div className="flex flex-wrap gap-2 justify-center mb-5">
             {["Infirmier d'État", "Sage Femme d'État", "Technicien de Laboratoire", "Technicien de Santé Communautaire (TSC)", "Agent Technique de la Santé (ATS)"].map((f, i) => (
-              <span key={i} className="inline-flex items-center gap-1.5 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                ✅ {f}
+              <span key={i} className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                {f}
               </span>
             ))}
           </div>
@@ -389,10 +389,12 @@ export default function InscriptionsPage() {
               </thead>
               <tbody className="divide-y divide-rose-100">
                 {[
-                  { num: 1, icon: "🩺", level: "Infirmier d'État",           t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-red-50",    badge: "bg-red-100 text-red-800" },
-                  { num: 2, icon: "👩‍⚕️", level: "Sage Femme d'État",          t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-rose-50",  badge: "bg-rose-100 text-rose-800" },
-                  { num: 3, icon: "🔬", level: "Technicien de Laboratoire",   t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-amber-50", badge: "bg-amber-100 text-amber-800" },
-                  { num: 4, icon: "🏥", level: "TSC / ATS",                   t1: "1 600 000 GNF", t2: "1 000 000 GNF", annuel: "2 600 000 GNF", color: "bg-slate-50", badge: "bg-slate-100 text-slate-800" },
+                  { num: 1, level: "Infirmier d'État",            t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-blue-50",    badge: "bg-blue-100 text-blue-800" },
+                  { num: 2, level: "Auxiliaire Infirmier d'État", t1: "1 700 000 GNF", t2: "1 000 000 GNF", annuel: "2 700 000 GNF", color: "bg-emerald-50",    badge: "bg-emerald-100 text-emerald-800" },
+                  { num: 3, level: "Sage Femme",                  t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-rose-50",  badge: "bg-rose-100 text-rose-800" },
+                  { num: 4, level: "Auxiliaire Sage Femme",       t1: "1 700 000 GNF", t2: "1 000 000 GNF", annuel: "2 700 000 GNF", color: "bg-purple-50",  badge: "bg-purple-100 text-purple-800" },
+                  { num: 5, level: "Technicien de Laboratoire",   t1: "1 800 000 GNF", t2: "1 000 000 GNF", annuel: "2 800 000 GNF", color: "bg-amber-50", badge: "bg-amber-100 text-amber-800" },
+                  { num: 6, level: "TSC / ATS",                   t1: "1 600 000 GNF", t2: "1 000 000 GNF", annuel: "2 600 000 GNF", color: "bg-cyan-50", badge: "bg-cyan-100 text-cyan-800" },
                 ].map((fee) => (
                   <tr key={fee.num} className="bg-white hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-4 text-center">
@@ -402,7 +404,6 @@ export default function InscriptionsPage() {
                     </td>
                     <td className="px-4 py-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-xl">{fee.icon}</span>
                         <span className="font-bold text-gray-900 text-sm">{fee.level}</span>
                       </div>
                     </td>
