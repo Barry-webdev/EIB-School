@@ -123,7 +123,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-green-50 transition-colors group"
               >
-                <div className="w-11 h-11 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 bg-blue-700 rounded-xl flex items-center justify-center flex-shrink-0">
                   <WhatsAppIcon className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -215,7 +215,7 @@ export default function ContactPage() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localisation du Complexe E.I.B à Pita sur Google Maps"
+            title="Complexe Elhadj Ibrahima Barry"
             className="w-full h-full"
           />
         </div>
