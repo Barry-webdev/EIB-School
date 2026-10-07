@@ -253,7 +253,7 @@ export default function AProposPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             pretitle="Notre équipe"
-            title="L'équipe de direction"
+            title="La fondation et   l'équipe de direction"
             subtitle="Une équipe expérimentée et dévouée au service de l'excellence pédagogique de l'E.I.B."
             align="center"
             className="mb-12"
@@ -269,6 +269,7 @@ export default function AProposPage() {
                 dept: "Complexe Scolaire Privé E.I.B",
                 phone: "+224 628 57 03 30",
                 tel: "+224628570330",
+                image: "/fondateur.jpeg",
                 icon: "👑",
                 bg: "bg-[#c9a84c]/10",
                 border: "border-[#c9a84c]/30",
@@ -282,6 +283,7 @@ export default function AProposPage() {
                   dept: "École Professionnelle de la Santé",
                   phone: "+224 620 22 95 84",
                   tel: "+224620229584",
+                  image: "/directeurEtudeSante.jpeg",
                   icon: "🩺",
                   bg: "bg-rose-50",
                   border: "border-rose-200",
@@ -293,6 +295,7 @@ export default function AProposPage() {
                   dept: "Comptabilité",
                   phone: "+224 629 33 95 61",
                   tel: "+224629339561",
+                  image: "/comptable.jpeg",
                   icon: "💼",
                   bg: "bg-amber-50",
                   border: "border-amber-200",
@@ -322,7 +325,7 @@ export default function AProposPage() {
                   <div key={i} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col">
                     {/* Header — image si dispo, sinon emoji sur fond navy */}
                     {"image" in member && member.image ? (
-                      <div className="relative h-48 overflow-hidden flex-shrink-0">
+                      <div className="relative h-80 overflow-hidden flex-shrink-0">
                         <Image src={member.image} alt={member.dept} fill
                           className="object-cover object-center" sizes="(max-width:640px) 100vw, 300px" />
                       </div>
