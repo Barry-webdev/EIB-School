@@ -262,7 +262,6 @@ export default function AProposPage() {
           {/* Données complètes de l'équipe */}
           {(() => {
             const team = [
-              // Ligne 1 — Fondateur seul
               [{
                 name: "M. Mamadou Oury Barry",
                 role: "Fondateur",
@@ -275,20 +274,7 @@ export default function AProposPage() {
                 border: "border-[#c9a84c]/30",
                 text: "text-[#8f6f22]",
               }],
-              // Ligne 2 — Directeur études + Comptable
               [
-                {
-                  name: "M. Elhadj Ibrahima Barry",
-                  role: "Directeur des études",
-                  dept: "École Professionnelle de la Santé",
-                  phone: "+224 620 22 95 84",
-                  tel: "+224620229584",
-                  image: "/directeurEtudeSante.jpeg",
-                  icon: "🩺",
-                  bg: "bg-rose-50",
-                  border: "border-rose-200",
-                  text: "text-rose-700",
-                },
                 {
                   name: "M. Amadou Diao Barry",
                   role: "Comptable",
@@ -301,13 +287,27 @@ export default function AProposPage() {
                   border: "border-amber-200",
                   text: "text-amber-700",
                 },
+                {
+                  name: "M. Elhadj Ibrahima Barry",
+                  role: "Directeur des études",
+                  dept: "École Professionnelle de la Santé",
+                  phone: "+224 620 22 95 84",
+                  tel: "+224620229584",
+                  image: "/directeurEtudeSante.jpeg",
+                  icon: "🩺",
+                  bg: "bg-rose-50",
+                  border: "border-rose-200",
+                  text: "text-rose-700",
+                },
+                { name: "Dr Oumar Baïlo Kanté",      role: "Directeur", dept: "École Prof. de la Santé",      phone: "+224 628 40 42 70", tel: "+224628404270", image: "/directeurSante.jpeg",    icon: "🏥", bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700" },
+                { name: "M. Mamadou Baïla Barry",    role: "Proviseur", dept: "Lycée", phone: "+224 628 32 88 46", tel: "+224628328846", image: "/directeurLycee.jpeg",    icon: "🎓", bg: "bg-violet-50",  border: "border-violet-200",  text: "text-violet-700" },
               ],
               // Ligne 3 — 4 Directeurs
               [
-                { name: "M. Sâa Alexis Dembadouno", role: "Directeur", dept: "École Maternelle",             phone: "+224 613 24 13 37", tel: "+224613241337", image: "/directMarternelle.jpeg", icon: "🌱", bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700" },
-                { name: "M. Tely Baïlo Diallo",      role: "Directeur", dept: "École Primaire",               phone: "+224 620 47 13 92", tel: "+224620471392", image: "/directeurPrimaire.jpeg",  icon: "📚", bg: "bg-blue-50",    border: "border-blue-200",    text: "text-blue-700" },
-                { name: "M. Mamadou Baïla Barry",    role: "Directeur", dept: "Secondaire (Collège & Lycée)", phone: "+224 628 32 88 46", tel: "+224628328846", image: "/directeurLycee.jpeg",    icon: "🎓", bg: "bg-violet-50",  border: "border-violet-200",  text: "text-violet-700" },
-                { name: "Dr Oumar Baïlo Kanté",      role: "Directeur", dept: "École Prof. de la Santé",      phone: "+224 628 40 42 70", tel: "+224628404270", image: "/directeurSante.jpeg",    icon: "🏥", bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700" },
+                { name: "M. Sâa Alexis Dembadouno", role: "Directeur",            dept: "École Maternelle",  phone: "+224 620 68 34 53", tel: "+224620683453", image: "/directeurMaternelle.jpeg", icon: "🌱", bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700" },
+                { name: "M. Tely Baïlo Diallo",     role: "Directeur",            dept: "École Primaire",    phone: "+224 620 47 13 92", tel: "+224620471392", image: "/directeurPrimaire.jpeg",  icon: "📚", bg: "bg-blue-50",    border: "border-blue-200",    text: "text-blue-700" },
+                { name: "M. Mamadou Saïdou Cissé",  role: "Directeur des études", dept: "Collège",           phone: "+224 621 22 21 11", tel: "+224621222111", image: "/directeurEtudeCollege.jpeg",  icon: "📚", bg: "bg-blue-50",    border: "border-blue-200",    text: "text-blue-700" },
+                { name: "M. Mohamed Diané",         role: "Censeur",              dept: "Lycée",             phone: "+224 622 97 85 83", tel: "+224622978583", image: "/censeur.jpeg",  icon: "📚", bg: "bg-violet-50",  border: "border-violet-200",  text: "text-violet-700" },
               ],
             ];
 
